@@ -1,0 +1,521 @@
+
+/* Mobile First Responsive Design */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title::after {
+        width: 40px;
+        height: 3px;
+        bottom: -8px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .feature-item i {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
+    }
+    
+    .feature-item h5 {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand img {
+        height: 70px !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+/* Navigation Mobile */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--light-dark);
+    }
+    
+    .nav-link {
+        margin: 0.5rem 0;
+        padding: 0.75rem 1rem !important;
+        color: var(--dark-color) !important;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+        background-color: rgba(44, 90, 160, 0.05);
+        border-radius: 5px;
+    }
+    
+    .dropdown-menu {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .navbar-dark .navbar-toggler {
+        border-color: var(--primary-color);
+    }
+    
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 90, 160, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+/* Hero Section Mobile */
+@media (max-width: 768px) {
+    .hero-section-with-banner {
+        text-align: center;
+        padding: 100px 0 50px;
+    }
+    
+    .hero-content-overlay {
+        padding: 2rem;
+        margin: 1rem;
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Cards Mobile */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 2rem;
+    }
+    
+    .product-card .card-img-top {
+        height: 200px;
+    }
+    
+    .product-card .card-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Forms Mobile */
+@media (max-width: 576px) {
+    .form-control {
+        padding: 0.75rem;
+        font-size: 14px;
+    }
+    
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .application-section .card {
+        padding: 1rem !important;
+    }
+    
+    .application-section .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Footer Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 !important;
+    }
+    
+    .footer .col-lg-4,
+    .footer .col-lg-2,
+    .footer .col-lg-3 {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .footer .social-links a {
+        margin: 0 5px;
+    }
+    
+    .footer-languages {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .footer-languages a {
+        display: inline-block;
+        margin: 0 0.5rem 0.5rem 0;
+    }
+}
+
+/* Application Form Mobile */
+@media (max-width: 768px) {
+    .application-section .row.mb-4 {
+        margin-bottom: 1rem !important;
+    }
+    
+    .application-section h5.text-primary {
+        font-size: 1.1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .hero-buttons,
+    .footer,
+    .floating-social-buttons,
+    .back-to-top {
+        display: none !important;
+    }
+    
+    .hero-section-with-banner {
+        background: white !important;
+        color: black !important;
+        min-height: auto !important;
+    }
+    
+    .hero-content-overlay {
+        background: none !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+    }
+    
+    .hero-title {
+        color: black !important;
+        text-shadow: none !important;
+    }
+    
+    .hero-subtitle {
+        color: black !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    body {
+        color: black !important;
+        background: white !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+}
+
+/* RTL (Right-to-Left) Support */
+.rtl {
+    direction: rtl;
+}
+
+.rtl .section-title::after {
+    left: auto;
+    right: 0;
+}
+
+.rtl .section-title.text-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rtl .feature-item i {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+.rtl .me-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+.rtl .me-3 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+.rtl .text-lg-end {
+    text-align: left !important;
+}
+
+.rtl .floating-social-buttons {
+    right: auto !important;
+    left: 30px !important;
+}
+
+.rtl .floating-social-button .tooltip {
+    right: auto !important;
+    left: 70px !important;
+}
+
+.rtl .floating-social-button:hover .tooltip {
+    left: 75px !important;
+}
+
+.rtl .floating-social-button .tooltip::after {
+    right: auto !important;
+    left: -5px !important;
+    border-color: transparent var(--dark-color) transparent transparent !important;
+}
+
+@media (max-width: 991.98px) {
+    .rtl .navbar-collapse {
+        text-align: right;
+    }
+    
+    .rtl .nav-link {
+        text-align: right;
+    }
+}
+
+@media (max-width: 768px) {
+    .rtl .floating-social-buttons {
+        right: auto !important;
+        left: 20px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .rtl .floating-social-buttons {
+        right: auto !important;
+        left: 15px !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #1A202C;
+        --dark-color: #F7FAFC;
+        --light-dark: #2D3748;
+        --dark-light: #CBD5E0;
+    }
+    
+    body {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+    }
+    
+    .custom-navbar {
+        background: rgba(26, 32, 44, 0.95) !important;
+    }
+    
+    .custom-navbar.scrolled {
+        background: rgba(26, 32, 44, 0.98) !important;
+    }
+    
+    .nav-link {
+        color: var(--dark-color) !important;
+    }
+    
+    .navbar-collapse {
+        background: #2D3748 !important;
+    }
+    
+    .card,
+    .feature-item,
+    .product-card {
+        background: #2D3748;
+        border-color: #4A5568;
+    }
+    
+    .form-control {
+        background: #2D3748;
+        border-color: #4A5568;
+        color: var(--dark-color);
+    }
+    
+    .dropdown-menu {
+        background: #2D3748;
+        border-color: #4A5568;
+    }
+    
+    .dropdown-item {
+        color: var(--dark-color);
+    }
+    
+    .dropdown-item:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+    
+    .footer {
+        background: linear-gradient(135deg, #1A202C 0%, #0F1419 100%) !important;
+    }
+    
+    .hero-section-with-banner {
+        background: 
+            linear-gradient(135deg, 
+                rgba(44, 90, 160, 0.9) 0%, 
+                rgba(30, 58, 115, 0.9) 100%),
+            url('../image/prelinehed.png') center/cover no-repeat;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0047AB;
+        --secondary-color: #008080;
+        --dark-color: #000000;
+        --light-color: #FFFFFF;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        border: 2px solid black;
+    }
+    
+    .form-control {
+        border: 2px solid black;
+    }
+    
+    .card {
+        border: 2px solid black;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .hero-content-overlay {
+        animation: none !important;
+    }
+    
+    .feature-item:hover,
+    .product-card:hover,
+    .btn:hover {
+        transform: none !important;
+    }
+}
+/* Mevcut responsive.css'nin sonuna ekleyin */
+
+/* Products Horizontal Scroller Responsive */
+@media (max-width: 768px) {
+    .horizontal-scroller {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .horizontal-scroller::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .btn-scroll {
+        display: none !important;
+    }
+}
+
+/* Print styles için */
+@media print {
+    .products-horizontal-section {
+        page-break-inside: avoid;
+    }
+    
+    .horizontal-scroller {
+        overflow: visible !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
+    }
+    
+    .scroll-item {
+        width: 48% !important;
+        margin-bottom: 20px;
+    }
+    
+    .btn-scroll, 
+    .scroll-progress,
+    .btn-whatsapp {
+        display: none !important;
+    }
+}
