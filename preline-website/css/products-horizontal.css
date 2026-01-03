@@ -1,0 +1,444 @@
+/* PRODUCTS HORIZONTAL SCROLLER STYLES */
+
+.products-horizontal-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.products-horizontal-section .section-header {
+    margin-bottom: 40px;
+}
+
+.products-horizontal-section .section-title {
+    color: var(--dark-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.products-horizontal-section .section-header p {
+    color: var(--dark-light);
+    font-size: 1.1rem;
+}
+
+/* Scroller Container */
+.horizontal-scroller-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.horizontal-scroller {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f0f0f0;
+    min-height: 400px;
+}
+
+.horizontal-scroller::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroller::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.horizontal-scroller::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+.horizontal-scroller::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+/* Scroll Items */
+.scroll-item {
+    flex: 0 0 auto;
+    width: 320px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Product Cards */
+.scroll-item .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.scroll-item:hover .card {
+    box-shadow: 0 15px 35px rgba(44, 90, 160, 0.15);
+}
+
+.scroll-item .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.scroll-item:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.scroll-item .card-body {
+    padding: 25px;
+}
+
+.scroll-item .card-category {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scroll-item .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    line-height: 1.3;
+}
+
+.scroll-item .card-text {
+    font-size: 0.95rem;
+    color: var(--dark-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    min-height: 60px;
+}
+
+/* Product Features */
+.product-features {
+    margin-bottom: 20px;
+}
+
+.product-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--dark-light);
+}
+
+.product-features li i {
+    color: var(--success-color);
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+/* Buttons */
+.product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-details {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-details:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+    color: white;
+}
+
+.btn-whatsapp {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Scroll Buttons */
+.btn-scroll {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-scroll:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(44, 90, 160, 0.3);
+}
+
+.btn-scroll:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-scroll:disabled:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+/* Progress Bar */
+.scroll-progress {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+/* View All Button */
+.btn-view-all {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 0 5px 20px rgba(44, 90, 160, 0.2);
+}
+
+.btn-view-all:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+    color: white;
+}
+
+/* Empty State */
+.horizontal-scroller-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    color: var(--dark-light);
+}
+
+.horizontal-scroller-empty i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .scroll-item {
+        width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .products-horizontal-section {
+        padding: 60px 0;
+    }
+    
+    .horizontal-scroller-container {
+        padding: 20px;
+    }
+    
+    .scroll-item {
+        width: 280px;
+    }
+    
+    .scroll-item .card-img-top {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-horizontal-section .section-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .btn-scroll {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .scroll-item {
+        width: 260px;
+    }
+    
+    .horizontal-scroller {
+        gap: 20px;
+        padding: 10px 5px;
+    }
+    
+    .scroll-item .card-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-horizontal-section {
+        padding: 50px 0;
+    }
+    
+    .products-horizontal-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .scroll-item {
+        width: 85vw;
+        max-width: 300px;
+    }
+    
+    .horizontal-scroller {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .btn-scroll {
+        display: none !important;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .btn-whatsapp {
+        width: 100%;
+        height: 45px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .products-horizontal-section {
+        background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+    }
+    
+    .products-horizontal-section .section-title {
+        color: white;
+    }
+    
+    .products-horizontal-section .section-header p {
+        color: #CBD5E0;
+    }
+    
+    .horizontal-scroller-container {
+        background: #2D3748;
+        border-color: #4A5568;
+    }
+    
+    .scroll-item .card {
+        background: #4A5568;
+    }
+    
+    .scroll-item .card-title {
+        color: white;
+    }
+    
+    .scroll-item .card-text {
+        color: #CBD5E0;
+    }
+    
+    .product-features li {
+        color: #A0AEC0;
+    }
+    
+    .btn-scroll {
+        background: #4A5568;
+        border-color: var(--primary-light);
+        color: var(--primary-light);
+    }
+    
+    .btn-scroll:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+    
+    .scroll-progress {
+        background: #4A5568;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-item,
+    .scroll-item:hover .card-img-top,
+    .btn-details:hover,
+    .btn-whatsapp:hover,
+    .btn-scroll:hover,
+    .btn-view-all:hover {
+        transition: none;
+        transform: none !important;
+    }
+    
+    .horizontal-scroller {
+        scroll-behavior: auto;
+    }
+}
