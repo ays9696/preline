@@ -94,24 +94,50 @@
 </nav>
 
 
-    <!-- Hero Section -->
-    <!-- Hero Section - Banner as Background -->
-<section id="home" class="hero-section-with-banner" image src="preline.png";>
+    <!-- Hero Section - Video Background -->
+<section id="home" class="hero-section-with-video">
+    <!-- Video Background -->
+     <!--Video 1-->
+    <video autoplay muted loop playsinline class="hero-video-background">
+        <source src="image/videobanner/prelinev.mp4" type="video/mp4">
+    </video>
+    <!--Video2-->
+    <video autoplay muted loop playsinline class="hero-video">
+            <source src="image/videobanner/preline2v.mp4" type="video/mp4">
+        </video>
+        <img src="image/videobanner/preline1.png" alt="Hero Image 1" class="hero-image hero-image-1">
+    <div class="hero-media-controls">
+        <button class="media-control-btn active" data-index="0">
+            <i class="fas fa-play"></i>
+        </button>
+        <button class="media-control-btn" data-index="1">
+            <i class="fas fa-play"></i>
+        </button>
+        <button class="media-control-btn" data-index="2">
+            <i class="fas fa-image"></i>
+        </button>
+        <button class="media-control-btn" data-index="3">
+            <i class="fas fa-image"></i>
+        </button>
+    </div>
+    <!-- Video Overlay (karanlık overlay) -->
+    <div class="video-overlay"></div>
+    
     <div class="container">
         <div class="row align-items-center justify-content-center min-vh-100">
             <div class="col-lg-8 text-center">
                 
-                <!-- İçerik banner'ın ÜZERİNDE görünecek -->
+                <!-- İçerik video'nun ÜZERİNDE görünecek -->
                 <div class="hero-content-overlay">
-                    <h1 class="hero-title" data-i18n="hero.title">Japon Teknolojisi Preline’da Buluşuyor</h1>
-                    <p class="hero-subtitle" data-i18n="hero.subtitle">Japon teknolojisinin kusursuz hassasiyeti ve inovatif gücüyle harmanlıyoruz. Üretimde mükemmeliyet arayanlar için yüksek standartlı çözümler sunuyoruz.</p>
+                    <h1 class="hero-title" data-i18n="hero.title">Preline'e Hoş Geldiniz</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Kalite ve inovasyonun buluştuğu nokta</p>
                     
                     <div class="hero-buttons">
                         <a href="#products" class="btn btn-primary btn-lg me-3" data-i18n="hero.products">
                             <i class="fas fa-box me-2"></i><span class="btn-text">Ürünleri Keşfet</span>
                         </a>
-                        <a href="#about" class="btn btn-outline-light btn-lg" data-i18n="hero.video">
-                            <i class="fas fa-play-circle me-2"></i><span class="btn-text">Kurumsal Profilimiz</span>
+                        <a href="#about" class="btn btn-outline-light btn-lg" data-i18n="hero.about">
+                            <i class="fas fa-info-circle me-2"></i><span class="btn-text">Hakkımızda</span>
                         </a>
                     </div>
                 </div>

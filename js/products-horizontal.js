@@ -37,67 +37,64 @@ class ProductsHorizontalScroller {
         return [
             {
                 id: 1,
-                name: "Preline Baby Diapers",
-                description: "Complete Range for All Sizes. Japan Quality, Dermatologically Tested",
+                name: "Preline Bebek Bezi",
+                description: "Japon teknolojisi ile üretilen konforlu premium seri",
                 image: "image/products/product1.png", // Veya "images/products/preline-baby.jpg"
                 category: "Bebek Bezi",
-                features: ["Tüm bedenler için", "Japon kalitesi", "Dermatolojik olarak test edilmiş"],
-                price: "₺XXX",
+                features: ["Vitamin E","Yüksek Emicilik", "Sızdırmaz Bariyer", "Esnek Anatomik Yapı", "Süper Elastik Bantlar","Nefes Aldıran Tekstil Doku"],
                 link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
                 whatsappText: "Preline Baby Diapers hakkında bilgi almak istiyorum"
             },
             {
+
                 id: 2,
-                name: "Preline Lady",
-                description: "Reliable Comfort & Care. Dermatologically Tested & Breathable. Made in Türkiye",
-                image: "image//products/product2.png",
-                category: "Yetişkin Bezi",
-                features: ["Güvenilir konfor", "Nefes alabilir", "Türkiye'de üretilmiş"],
-                price: "₺XXX",
+                name: "Preline Bebek Külot Bezi",
+                description: "Japon teknolojisi ile üretilen konforlu premium seri",
+                image: "image/products/product5.png",
+                category: "Bebek Külot Bezi",
+                features: ["Elastik Bel Bölgesi","Islaklık Göstergesi", "Kolay Giydirme", "Koku Kontrol", "Sızdırmaz Bariyer","Yüksek Emicilik"],
                 link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
-                whatsappText: "Preline Lady hakkında bilgi almak istiyorum"
+                whatsappText: "Preline Premium Serisi hakkında bilgi almak istiyorum"
+                
             },
             {
                 id: 3,
-                name: "Preline Active",
-                description: "Medium Online Adult Patient Diaper. Textile Surface, Dermatologically Tested, Reliable Comfort",
+                name: "Preline Adult Diapers",
+                description: "Preline Yetişkin Bezi, gün boyu güvenilir koruma ve konfor sunar.",
                 image: "image//products/product3.png",
                 category: "Yetişkin Bezi",
-                features: ["Tekstil yüzey", "Dermatolojik testli", "Güvenilir konfor"],
-                price: "₺XXX",
+                features: ["Nefes ALabilen Pamuk yüzey","Islaklık Göstergesi", "Dermatolojik testli", "Güvenilir konfor","Koku Kontrol","Sızdırmaz Bariyer"],
                 link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
                 whatsappText: "Preline Active hakkında bilgi almak istiyorum"
             },
             {
-                id: 4,
+                id: 5,
+                name: "Preline Lady",
+                description: "Preline Kadın Hijyenik Pedi, her zaman yanınızda. Güvenilir koruma ve konfor sunar.",
+                image: "image//products/product2.png",
+                category: "Kadın Pedi",
+                features: ["Yüksek Emicilik", "Nefes alabilir", "İnce ve Hafif","Hareket Özgürlüğü","Dermatolojik Testli"],
+                link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
+                whatsappText: "Preline Lady hakkında bilgi almak istiyorum"
+                
+            },
+            {
+               id: 4,
                 name: "Preline Wet Wipes",
-                description: "Gentle Care, Powerful Protection. Trusted Softness, Dermatologically Tested, For Every Need",
+                description: "Preline Islak Mendil, hijyen ve tazelik için ideal çözüm.",
                 image: "image//products/product4.png",
                 category: "Islak Mendil",
-                features: ["Nazik bakım", "Güçlü koruma", "Dermatolojik testli"],
-                price: "₺XXX",
+                features: ["Yumuşak Doku", "Alkol ve Paraben içermez","Bakteri Kontrolü","Hipoalerjenik", "Uzun Süreli Nemlendirme"],
                 link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
                 whatsappText: "Preline Wet Wipes hakkında bilgi almak istiyorum"
             },
             {
-                id: 5,
-                name: "Preline Premium Serisi",
-                description: "Ekstra emici ve konforlu premium seri",
-                image: "images/products/product5.png",
-                category: "Premium",
-                features: ["Ekstra emici", "24 saat koruma", "Cilt dostu"],
-                price: "₺XXX",
-                link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
-                whatsappText: "Preline Premium Serisi hakkında bilgi almak istiyorum"
-            },
-            {
                 id: 6,
                 name: "Preline Surface Cleaning Towels",
-                description: "Gece kullanımı için özel tasarlanmış seri",
-                image: "images/products/product6.png",
+                description: "Preline Yüzey Temizleme Havlusu, etkili ve pratik temizlik çözümü.",
+                image: "image/products/product6.png",
                 category: "Gece",
-                features: ["Gece kullanımı", "Ekstra koruma", "Kuru kalma"],
-                price: "₺XXX",
+                features: ["Kalın ve Geniş Kumaş", "Alkol ve Deterjan Katkılı Doğal Çözüm", "Doğa Dostu","Çok Amaçlı Kullanım", "Hızlı ve Etkili Temizlik"],
                 link: "https://online.fliphtml5.com/akzrp/qmgh/#p=1",
                 whatsappText: "Preline Night Serisi hakkında bilgi almak istiyorum"
             }
@@ -152,9 +149,6 @@ class ProductsHorizontalScroller {
                     ` : ''}
                     
                     <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div class="product-price">
-                            <span class="text-primary fw-bold">${product.price}</span>
-                        </div>
                         <div class="product-actions">
                             <button class="btn btn-details" onclick="location.href='${product.link}'">
                                 <i class="fas fa-info-circle me-1"></i>Detaylar

@@ -278,3 +278,197 @@ function addCaptcha() {
     });
 }
 }
+// Main JavaScript File
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Preline Website Loaded');
+    
+    // Initialize components
+    initSmoothScroll();
+    initFormSubmissions();
+    initNavbar();
+    initScrollToTop();
+    
+    // Performance optimization
+    initLazyLoading();
+    initVideoOptimization();
+});
+
+// Smooth scroll for anchor links
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                updateActiveNavLink(targetId);
+            }
+        });
+    });
+}
+
+// Update active navigation link
+function updateActiveNavLink(targetId) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === targetId) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Form submissions
+function initFormSubmissions() {
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send data to server
+            alert('Mesajınız başarıyla gönderildi!');
+            this.reset();
+        });
+    }
+    
+    // Application form
+    const appForm = document.getElementById('partnerApplicationForm');
+    if (appForm) {
+        appForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Validate KVKK
+            const kvkkCheckbox = document.getElementById('kvkk');
+            if (!kvkkCheckbox.checked) {
+                alert('Lütfen KVKK onayını işaretleyiniz.');
+                kvkkCheckbox.focus();
+                return;
+            }
+            
+            // Here you would typically send data to server
+            alert('Başvurunuz başarıyla gönderildi! Teşekkür ederiz.');
+            this.reset();
+        });
+    }
+}
+
+// Navbar scroll effect
+function initNavbar() {
+    const navbar = document.querySelector('.custom-navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+}
+
+// Scroll to top functionality
+function initScrollToTop() {
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    `;
+    
+    document.body.appendChild(backToTopBtn);
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.opacity = '1';
+            backToTopBtn.style.visibility = 'visible';
+        } else {
+            backToTopBtn.style.opacity = '0';
+            backToTopBtn.style.visibility = 'hidden';
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Lazy loading for images
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+}
+
+// Video optimization
+function initVideoOptimization() {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.muted = true;
+        
+        // Handle video loading errors
+        video.addEventListener('error', function() {
+            console.error('Video failed to load:', this.src);
+            // You could show a fallback image here
+        });
+    });
+}
+
+// Responsive adjustments
+function handleResponsive() {
+    // Check if mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Mobile-specific adjustments
+        document.body.classList.add('mobile');
+    } else {
+        document.body.classList.remove('mobile');
+    }
+}
+
+// Initialize on load and resize
+window.addEventListener('load', handleResponsive);
+window.addEventListener('resize', handleResponsive);
