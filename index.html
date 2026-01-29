@@ -3,265 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preline - Kurumsal Website</title>
+    <title>Preline - Kalite ve İnovasyon</title>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; 
+                   style-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline';
+                   img-src 'self' data: https:;
+                   font-src 'self' https://cdnjs.cloudflare.com;
+                   connect-src 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/hero-fixes.css">
     <link rel="stylesheet" href="css/products-horizontal.css">
-
-<!-- Security Headers 
-<meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
-               style-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline';
-               img-src 'self' data: https:;
-               font-src 'self' https://cdnjs.cloudflare.com;
-               connect-src 'self'">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-</head>
-<body>-->
-    <!-- Navigation -->
+    <link rel="stylesheet" href="css/modern-effect.css">
+    <link rel="stylesheet" href="css/responsive.css">
     
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar" >
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="image/preline logo-1.png" alt="Preline Logo" height="100">
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home" data-i18n="nav.home">
-                        <i class="fas fa-home me-2"></i><span class="nav-text">Ana Sayfa</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about" data-i18n="nav.about">
-                        <i class="fas fa-info-circle me-2"></i><span class="nav-text">Hakkımızda</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#products" data-i18n="nav.products">
-                        <i class="fas fa-box me-2"></i><span class="nav-text">Ürünler</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://online.fliphtml5.com/akzrp/qmgh/#p=1" data-i18n="nav.catalog">
-                        <i class="fas fa-concierge-bell me-2"></i><span class="nav-text">E-Katalog  </span>
-                        </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact" data-i18n="nav.contact">
-                        <i class="fas fa-envelope me-2"></i><span class="nav-text">İletişim</span>
-                    </a>
-                </li>
-            </ul>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Preline - Japon teknolojisi ile üretilen kaliteli bebek bezleri ve hijyen ürünleri">
+    <meta name="keywords" content="bebek bezi, hijyen ürünleri, Preline, Japon teknolojisi, bebek bakımı">
+    <meta name="author" content="Preline">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="image/preline logo-1.png" alt="Preline Logo" height="150">
+            </a>
             
-            <div class="d-flex align-items-center">
-                <!-- Language Switcher -->
-                <div class="dropdown me-3">
-                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
-                        <i class="fas fa-globe me-2"></i><span class="lang-code">TR</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item language-option" href="#" data-lang="tr">Türkçe (TR)</a></li>
-                        <li><a class="dropdown-item language-option" href="#" data-lang="en">English (EN)</a></li>
-                        <li><a class="dropdown-item language-option" href="#" data-lang="ar">العربية (AR)</a></li>
-                        <li><a class="dropdown-item language-option" href="#" data-lang="ru">Русский (RU)</a></li>
-                    </ul>
-                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-i18n="nav.home">
+                            <i class="fas fa-home me-2"></i><span class="nav-text">Ana Sayfa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-i18n="nav.about">
+                            <i class="fas fa-info-circle me-2"></i><span class="nav-text">Hakkımızda</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products" data-i18n="nav.products">
+                            <i class="fas fa-box me-2"></i><span class="nav-text">Ürünler</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://online.fliphtml5.com/akzrp/qmgh/#p=1" target="_blank">
+                            <i class="fas fa-concierge-bell me-2"></i><span class="nav-text">E-Katalog</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-i18n="nav.contact">
+                            <i class="fas fa-envelope me-2"></i><span class="nav-text">İletişim</span>
+                        </a>
+                    </li>
+                </ul>
                 
-                <a href="#application" class="btn btn-primary" data-i18n="nav.application">
-                    <i class="fas fa-paper-plane me-2"></i><span class="btn-text">Başvuru</span>
+                <div class="d-flex align-items-center">
+                    <!-- Language Switcher -->
+                    <div class="dropdown me-3">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe me-2"></i><span class="lang-code">TR</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item language-option" href="#" data-lang="tr">Türkçe (TR)</a></li>
+                            <li><a class="dropdown-item language-option" href="#" data-lang="en">English (EN)</a></li>
+                            <li><a class="dropdown-item language-option" href="#" data-lang="ar">العربية (AR)</a></li>
+                            <li><a class="dropdown-item language-option" href="#" data-lang="ru">Русский (RU)</a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#application" class="btn btn-primary" data-i18n="nav.application">
+                        <i class="fas fa-paper-plane me-2"></i><span class="btn-text">Başvuru</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section-with-video">
+        <div class="hero-media-container">
+            <!-- Video 1 -->
+            <video autoplay muted loop playsinline class="hero-media active" data-type="video">
+                <source src="image/videobanner/prelin2.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            
+            <!-- Images -->
+            <img src="image/videobanner/preline4.jpeg" alt="Preline Product 1" class="hero-media" data-type="image">
+            <img src="image/videobanner/preline3.jpeg" alt="Preline Product 2" class="hero-media" data-type="image">
+            <img src="image/videobanner/prelinev.jpeg" alt="Preline Product 3" class="hero-media" data-type="image">
+        </div>
+        
+        <div class="video-overlay"></div>
+        
+        <div class="hero-media-controls">
+            <button class="media-control-btn active" data-index="0">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="media-control-btn" data-index="1">
+                <i class="fas fa-image"></i>
+            </button>
+            <button class="media-control-btn" data-index="2">
+                <i class="fas fa-image"></i>
+            </button>
+            <button class="media-control-btn" data-index="3">
+                <i class="fas fa-image"></i>
+            </button>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content-overlay glass-effect">
+                        <h1 class="hero-title" data-i18n="hero.title">Preline: Teknolojinin Japon Disipliniyle Yeniden Tanımı</h1>
+                        <p class="hero-subtitle" data-i18n="hero.subtitle">Sadece bir üretici değil, yüksek teknoloji ve inovasyonun stratejik çözüm ortağıyız. Geleneksel iş disiplinimizi, dünyanın en ileri teknolojileriyle geleceğe taşıyoruz.</p>
+                        
+                        <div class="hero-buttons">
+                            <a href="#products" class="btn btn-primary btn-lg me-3" data-i18n="hero.products">
+                                <i class="fas fa-box me-2"></i><span class="btn-text">Ürünleri Keşfet</span>
+                            </a>
+                            <a href="#about" class="btn btn-outline-light btn-lg" data-i18n="hero.about">
+                                <i class="fas fa-info-circle me-2"></i><span class="btn-text">Kurumsal Profilimiz</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="image/preeline.png" alt="Preline Hakkımızda" class="img-fluid rounded shadow-lg" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4" data-i18n="about.title">Hakkımızda</h2>
+                    <p class="lead mb-4" data-i18n="about.lead">
+                        Sektördeki 20 yılı aşkın köklü geçmişimiz ve derin uzmanlığımızla Preline, 
+                        sürdürülebilir kalite ve müşteri memnuniyetini odağına alan bir hizmet anlayışına sahiptir. 
+                        Profesyonel birikimimizi, yenilikçi yaklaşımlarla harmanlayarak yüksek standartlarda çözümler üretiyoruz.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item fade-in-up">
+                            <i class="fas fa-award text-primary"></i>
+                            <div>
+                                <h5 data-i18n="about.quality">Kalite Standartları</h5>
+                                <p data-i18n="about.quality_desc">Üretimin her aşamasında yüksek standartlar; her detayda üstün nitelik.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item fade-in-up">
+                            <i class="fas fa-users text-primary"></i>
+                            <div>
+                                <h5 data-i18n="about.customer">Müşteri Memnuniyeti</h5>
+                                <p data-i18n="about.customer_desc">Müşteri deneyimini odağına alan, güven ve şeffaflık üzerine kurulu hizmet kültürü.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item fade-in-up">
+                            <i class="fas fa-lightbulb text-primary"></i>
+                            <div>
+                                <h5 data-i18n="about.innovation">İnovasyon</h5>
+                                <p data-i18n="about.innovation_desc">Geleceği bugünden tasarlayan yenilikçi fikirler ve dinamik gelişim süreçleri.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-horizontal-section py-5">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="section-title mb-1" data-i18n="products.title">Ürünlerimiz</h2>
+                    <p class="text-muted mb-0">Yan yana kaydırarak tüm ürünlerimizi görün</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn-scroll btn-scroll-prev" aria-label="Önceki ürünler">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn-scroll btn-scroll-next" aria-label="Sonraki ürünler">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="horizontal-scroller-container">
+                <div class="horizontal-scroller" id="horizontalScroller">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="scroll-progress mt-4">
+                <div class="progress-bar"></div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="tum-urunler.html" class="btn btn-primary">
+                    <i class="fas fa-th-large me-2"></i>Tüm Ürünleri Listele
                 </a>
             </div>
         </div>
-    </div>
-</nav>
-
-
-    <!-- Hero Section - Video Background -->
-<section id="home" class="hero-section-with-video">
-    <!-- Video Background -->
-     <!--Video 1-->
-    <video autoplay muted loop playsinline class="hero-video-background">
-        <source src="image/videobanner/prelinev.mp4" type="video/mp4">
-    </video>
-    <!--Video2-->
-    <video autoplay muted loop playsinline class="hero-video">
-            <source src="image/videobanner/preline2v.mp4" type="video/mp4">
-        </video>
-        <img src="image/videobanner/preline1.png" alt="Hero Image 1" class="hero-image hero-image-1">
-    <div class="hero-media-controls">
-        <button class="media-control-btn active" data-index="0">
-            <i class="fas fa-play"></i>
-        </button>
-        <button class="media-control-btn" data-index="1">
-            <i class="fas fa-play"></i>
-        </button>
-        <button class="media-control-btn" data-index="2">
-            <i class="fas fa-image"></i>
-        </button>
-        <button class="media-control-btn" data-index="3">
-            <i class="fas fa-image"></i>
-        </button>
-    </div>
-    <!-- Video Overlay (karanlık overlay) -->
-    <div class="video-overlay"></div>
-    
-    <div class="container">
-        <div class="row align-items-center justify-content-center min-vh-100">
-            <div class="col-lg-8 text-center">
-                
-                <!-- İçerik video'nun ÜZERİNDE görünecek -->
-                <div class="hero-content-overlay">
-                    <h1 class="hero-title" data-i18n="hero.title">Preline'e Hoş Geldiniz</h1>
-                    <p class="hero-subtitle" data-i18n="hero.subtitle">Kalite ve inovasyonun buluştuğu nokta</p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#products" class="btn btn-primary btn-lg me-3" data-i18n="hero.products">
-                            <i class="fas fa-box me-2"></i><span class="btn-text">Ürünleri Keşfet</span>
-                        </a>
-                        <a href="#about" class="btn btn-outline-light btn-lg" data-i18n="hero.about">
-                            <i class="fas fa-info-circle me-2"></i><span class="btn-text">Hakkımızda</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- About Section - Güncellenmiş -->
-<section id="about" class="about-section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="image/preeline.png" alt="Hakkımızda" class="img-fluid rounded">
-            </div>
-            <div class="col-lg-6">
-                <h2 class="section-title" data-i18n="about.title">Hakkımızda</h2>
-                <p class="lead" data-i18n="about.lead">Preline olarak, çeyrek asra yaklaşan sektörel tecrübemizle, mükemmeliyetçi hizmet anlayışımızı birleştiriyoruz. 20 yılı aşkın süredir devam eden yolculuğumuzda, kaliteyi bir standart haline getirerek iş ortaklarımıza değer katan çözümler sunmaya devam ediyoruz.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <i class="fas fa-award"></i>
-                        <div>
-                            <h5 data-i18n="about.quality">Kalite Standartları</h5>
-                            <p data-i18n="about.quality_desc">Uluslararası standartlarda, tavizsiz kalite kontrol süreçleri ve mükemmeliyetçi üretim anlayışı.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h5 data-i18n="about.customer">Müşteri Memnuniyeti</h5>
-                            <p data-i18n="about.customer_desc">Sürdürülebilir iş ortaklığı modelimizle, müşteri beklentilerinin ötesinde değer yaratan, çözüm odaklı yaklaşım.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <div>
-                            <h5 data-i18n="about.innovation">İnovasyon</h5>
-                            <p data-i18n="about.innovation_desc">Teknolojik dönüşümü merkeze alan, Ar-Ge odaklı sürekli gelişim ve inovasyon stratejileri.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-   <!-- Products Section - Horizontal Scroller -->
-<section id="products" class="products-horizontal-section py-5">
-    <div class="container">
-        <div class="section-header d-flex justify-content-between align-items-center mb-4">
-            <div>
-                <h2 class="section-title mb-1" data-i18n="products.title">Ürünlerimiz</h2>
-                <p class="text-muted mb-0">Yan yana kaydırarak tüm ürünlerimizi görün</p>
-            </div>
-            <div class="d-flex gap-2">
-                <button class="btn-scroll btn-scroll-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="btn-scroll btn-scroll-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Scroller Container -->
-        <div class="horizontal-scroller-container">
-            <div class="horizontal-scroller" id="horizontalScroller">
-                <!-- Ürünler JS ile buraya eklenecek -->
-            </div>
-        </div>
-        
-        <!-- Progress Bar -->
-        <div class="scroll-progress mt-4">
-            <div class="progress-bar"></div>
-        </div>
-        
-        <!-- Tüm ürünleri göster butonu -->
-        <div class="text-center mt-5">
-            <a href="tum-urunler.html" class="btn btn-primary">
-                <i class="fas fa-th-large me-2"></i>Tüm Ürünleri Listele
-            </a>
-        </div>
-    </div>
-</section>  
-            
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Önceki</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Sonraki</span>
-            </button>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section py-5">
         <div class="container">
-            <h2 class="section-title text-center mb-5">İletişim</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <form id="contactForm">
+            <h2 class="section-title text-center mb-5" data-i18n="contact.title">İletişim</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="glass-effect p-4 rounded">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Adınız" required>
+                                <label for="contactName" class="form-label text-white" data-i18n="contact.name">Adınız</label>
+                                <input type="text" class="form-control" id="contactName" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="email" class="form-control" placeholder="E-posta" required>
+                                <label for="contactEmail" class="form-label text-white" data-i18n="contact.email">E-posta</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Konu" required>
+                            <label for="contactSubject" class="form-label text-white" data-i18n="contact.subject">Konu</label>
+                            <input type="text" class="form-control" id="contactSubject" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mesajınız" required></textarea>
+                            <label for="contactMessage" class="form-label text-white" data-i18n="contact.message">Mesajınız</label>
+                            <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Gönder</button>
+                        <button type="submit" class="btn btn-primary btn-lg" data-i18n="contact.send">
+                            <i class="fas fa-paper-plane me-2"></i>Gönder
+                        </button>
                     </form>
                 </div>
             </div>
@@ -269,187 +270,188 @@
     </section>
 
     <!-- Application Section -->
-    <!-- Application Form Section -->
-<section id="application" class="application-section py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title text-center mb-5" data-i18n="application.title">Başvuru Formu</h2>
-        <p class="lead text-center mb-5" data-i18n="application.lead">Bizimle çalışmak için başvurunuzu gönderin.</p>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card shadow">
-                    <div class="card-body p-5">
-                        <form id="partnerApplicationForm">
-                            <!-- Şirket Bilgileri -->
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h5 class="mb-3 text-primary">Şirket Bilgileri</h5>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="companyName" class="form-label">Firma Ünvanı *</label>
-                                    <input type="text" class="form-control" id="companyName" name="companyName" required>
-                                </div>
-                                <!--<div class="col-md-6 mb-3">
-                                    <label for="taxNumber" class="form-label">Vergi Numarası *</label>
-                                    <input type="text" class="form-control" id="taxNumber" name="taxNumber" required>
-                                </div>-->
-                                <div class="col-12 mb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="isCorporate" name="isCorporate">
-                                        <label class="form-check-label" for="isCorporate">
-                                            Tüzel Kişi (Kurumsal Müşteri)
-                                        </label>
+    <section id="application" class="application-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="application.title">Başvuru Formu</h2>
+            <p class="lead text-center mb-5" data-i18n="application.lead">Bizimle çalışmak için başvurunuzu gönderin.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="partnerApplicationForm">
+                                <!-- Company Information -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h5 class="mb-3 text-primary">Şirket Bilgileri</h5>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="companyName" class="form-label">Firma Ünvanı *</label>
+                                        <input type="text" class="form-control" id="companyName" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="isCorporate">
+                                            <label class="form-check-label" for="isCorporate">
+                                                Tüzel Kişi (Kurumsal Müşteri)
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- İletişim Bilgileri -->
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h5 class="mb-3 text-primary">İletişim Bilgileri</h5>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="contactPerson" class="form-label">Adınız Soyadınız *</label>
-                                    <input type="text" class="form-control" id="contactPerson" name="contactPerson" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="position" class="form-label">Ünvanınız *</label>
-                                    <input type="text" class="form-control" id="position" name="position" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="email" class="form-label">E-posta *</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="phone" class="form-label">Telefon *</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" required>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label for="city" class="form-label">Şehir *</label>
-                                    <input type="text" class="form-control" id="city" name="city" required>
-                                </div>
-                            </div>
-
-                            <!-- Ek Bilgiler -->
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h5 class="mb-3 text-primary">Ek Bilgiler</h5>
-                                    <label for="additionalInfo" class="form-label">İş birliği için faydalı olabilecek diğer bilgiler</label>
-                                    <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="4" placeholder="Proje teklifleri, özel ihtiyaçlar veya sorularınız..."></textarea>
-                                </div>
-                            </div>
-
-                            <!-- KVKK Onayı -->
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="kvkk" name="kvkk" required>
-                                        <label class="form-check-label" for="kvkk">
-                                            Kişisel verilerimin işlenmesini kabul ediyorum. (KVKK) *
-                                        </label>
+                                <!-- Contact Information -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h5 class="mb-3 text-primary">İletişim Bilgileri</h5>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactPerson" class="form-label">Adınız Soyadınız *</label>
+                                        <input type="text" class="form-control" id="contactPerson" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="position" class="form-label">Ünvanınız *</label>
+                                        <input type="text" class="form-control" id="position" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">E-posta *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">Telefon *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="city" class="form-label">Şehir *</label>
+                                        <input type="text" class="form-control" id="city" required>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Gönder Butonu -->
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg px-5">
-                                        <i class="fas fa-paper-plane me-2"></i>
-                                        <span data-i18n="application.apply">Başvuru Yap</span>
-                                    </button>
+                                <!-- Additional Information -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h5 class="mb-3 text-primary">Ek Bilgiler</h5>
+                                        <label for="additionalInfo" class="form-label">İş birliği için faydalı olabilecek diğer bilgiler</label>
+                                        <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Proje teklifleri, özel ihtiyaçlar veya sorularınız..."></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+
+                                <!-- KVKK Consent -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="kvkk" required>
+                                            <label class="form-check-label" for="kvkk">
+                                                Kişisel verilerimin işlenmesini kabul ediyorum. (KVKK) *
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                                            <i class="fas fa-paper-plane me-2"></i>
+                                            <span data-i18n="application.apply">Başvuru Yap</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Floating Social Buttons -->
+    <!-- Floating Social Buttons -->
     <div class="floating-social-buttons">
-        <a href="https://wa.me/PHONE_NUMBER" 
+        <a href="https://wa.me/905XXXXXXXXX?text=Preline%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" 
            target="_blank" 
            class="floating-social-button whatsapp"
-           data-i18n="social.whatsapp">
+           aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
-            <span class="tooltip" data-i18n="social.whatsapp_tooltip">WhatsApp</span>
+            <span class="tooltip">WhatsApp</span>
         </a>
-        <a href="https://t.me/USERNAME" 
+        <a href="https://t.me/preline_official" 
            target="_blank" 
            class="floating-social-button telegram"
-           data-i18n="social.telegram">
+           aria-label="Telegram">
             <i class="fab fa-telegram"></i>
-            <span class="tooltip" data-i18n="social.telegram_tooltip">Telegram</span>
+            <span class="tooltip">Telegram</span>
         </a>
     </div>
-    <!-- Footer - Güncellenmiş -->
-<footer class="footer bg-dark text-white py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <img src="image/preline logo-1.png" alt="Preline Logo" height="40" class="mb-3">
-                <p data-i18n="footer.tagline">Kalite ve inovasyonun buluştuğu nokta</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="image/preline logo-1.png" alt="Preline Logo" height="150" class="mb-3">
+                    <p data-i18n="footer.tagline" class="mb-3">Kalite ve inovasyonun buluştuğu nokta</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5 data-i18n="footer.navigation" class="mb-3">Navigasyon</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" data-i18n="nav.home">Ana Sayfa</a></li>
+                        <li><a href="#about" data-i18n="nav.about">Hakkımızda</a></li>
+                        <li><a href="#products" data-i18n="nav.products">Ürünler</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 data-i18n="footer.contact" class="mb-3">İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i>+90 555 123 4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@preline.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="mb-3">Yasal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="cookie-policy.html"><i class="fas fa-cookie me-2"></i>Çerez Politikası</a></li>
+                        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt me-2"></i>Gizlilik Politikası</a></li>
+                        <li><a href="kvkk.html"><i class="fas fa-file-contract me-2"></i>KVKK Aydınlatma Metni</a></li>
+                        <li><a href="terms.html"><i class="fas fa-gavel me-2"></i>Kullanım Şartları</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-2 mb-4">
-                <h5 data-i18n="footer.navigation">Navigasyon</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#home" data-i18n="nav.home">Ana Sayfa</a></li>
-                    <li><a href="#about" data-i18n="nav.about">Hakkımızda</a></li>
-                    <li><a href="#products" data-i18n="nav.products">Ürünler</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">İletişim</a></li>
-                </ul>
+            <hr class="my-4">
+            <div class="text-center">
+                <p data-i18n="footer.copyright" class="mb-0">&copy; 2025 Preline. Tüm hakları saklıdır.</p>
             </div>
-            <div class="col-lg-3 mb-4">
-                <h5 data-i18n="footer.contact">İletişim</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-phone me-2"></i>+90 XXX XXX XX XX</li>
-                    <li><i class="fas fa-envelope me-2"></i>info@preline.com</li>
-                    <li><i class="fas fa-map-marker-alt me-2"></i>Şirket Adresi</li>
-                </ul>
-            </div>
-            <!--<div class="col-lg-3 mb-4">
-                <h5 data-i18n="footer.languages">Diller</h5>
-                <div class="footer-languages">
-                    <a href="#" class="language-option" data-lang="tr">Türkçe</a>
-                    <a href="#" class="language-option" data-lang="en">English</a>
-                    <a href="#" class="language-option" data-lang="ar">العربية</a>
-                    <a href="#" class="language-option" data-lang="ru">Русский</a>
-                </div>-->
-                <div class="col-lg-3 mb-4">
-    <h5>Yasal</h5>
-    <ul class="list-unstyled">
-        <li><a href="cookie-policy.html"><i class="fas fa-cookie me-2"></i>Çerez Politikası</a></li>
-        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt me-2"></i>Gizlilik Politikası</a></li>
-        <li><a href="kvkk.html"><i class="fas fa-file-contract me-2"></i>KVKK Aydınlatma Metni</a></li>
-        <li><a href="terms.html"><i class="fas fa-gavel me-2"></i>Kullanım Şartları</a></li>
-    </ul>
-</div>
-            </div>
-            
         </div>
-        <hr class="my-4">
-        <div class="text-center">
-            <p data-i18n="footer.copyright">&copy; 2025 Preline. Tüm hakları saklıdır.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <!-- Bootstrap 5 JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom JS -->
+    <!-- Custom Scripts -->
     <script src="js/language-switcher.js"></script>
     <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/products-horizontal.js"></script>
+    <script src="js/hero-slider-fix.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    
+    <!-- Initialize -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Preline website loaded successfully');
+            
+            // Update WhatsApp number with your actual number
+            const whatsappButtons = document.querySelectorAll('a[href*="whatsapp"]');
+            whatsappButtons.forEach(btn => {
+                btn.href = btn.href.replace('905XXXXXXXXX', 'YOUR_PHONE_NUMBER');
+            });
+        });
+    </script>
 </body>
 </html>

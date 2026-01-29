@@ -1,120 +1,26 @@
-// Language Switcher Functionality - DÜZELTİLMİŞ VERSİYON
+// language-switcher.js - OPTİMİZE EDİLMİŞ
 
 class LanguageSwitcher {
     constructor() {
         this.currentLang = 'tr';
-        this.translations = {
+        this.translations = this.getAllTranslations();
+        this.init();
+    }
+    
+    init() {
+        this.loadSavedLanguage();
+        this.bindEvents();
+        this.updatePageDirection();
+        console.log('Language switcher initialized');
+    }
+    
+    getAllTranslations() {
+        return {
             tr: this.getTurkishTranslations(),
             en: this.getEnglishTranslations(),
             ar: this.getArabicTranslations(),
             ru: this.getRussianTranslations()
         };
-        
-        this.init();
-    }
-    
-    init() {
-        this.bindEvents();
-        this.loadSavedLanguage();
-        console.log('Language switcher initialized');
-    }
-    
-    bindEvents() {
-        // Dropdown language selection
-        const langLinks = document.querySelectorAll('.language-option');
-        langLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = e.target.getAttribute('data-lang');
-                console.log('Language selected:', lang);
-                this.switchLanguage(lang);
-            });
-        });
-    }
-    
-    switchLanguage(lang) {
-        if (this.translations[lang]) {
-            this.currentLang = lang;
-            this.updateContent();
-            this.updateDropdown(lang);
-            this.saveLanguage(lang);
-            this.updateDirection(lang);
-            console.log('Language switched to:', lang);
-        } else {
-            console.error('Language not found:', lang);
-        }
-    }
-    
-    updateContent() {
-        const translation = this.translations[this.currentLang];
-        
-        // Tüm çeviri elementlerini bul ve güncelle
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            const keys = key.split('.');
-            let value = translation;
-            
-            // Nested key'leri işle (örnek: "nav.home")
-            for (const k of keys) {
-                if (value && value[k]) {
-                    value = value[k];
-                } else {
-                    value = null;
-                    break;
-                }
-            }
-            
-            if (value) {
-                // Eğer element içinde span varsa, span'ın içeriğini güncelle
-                const textSpan = element.querySelector('.nav-text, .btn-text');
-                if (textSpan) {
-                    textSpan.textContent = value;
-                } else {
-                    element.textContent = value;
-                }
-            }
-        });
-    }
-    
-    updateDropdown(lang) {
-        const dropdownToggle = document.querySelector('#languageDropdown .lang-code');
-        if (dropdownToggle) {
-            const langText = lang.toUpperCase();
-            dropdownToggle.textContent = langText;
-        }
-    }
-    
-    updateDirection(lang) {
-        const html = document.documentElement;
-        if (lang === 'ar') {
-            html.dir = 'rtl';
-            html.lang = 'ar';
-            html.classList.add('rtl');
-        } else {
-            html.dir = 'ltr';
-            html.lang = lang;
-            html.classList.remove('rtl');
-        }
-    }
-    
-    saveLanguage(lang) {
-        try {
-            localStorage.setItem('preline-language', lang);
-        } catch (e) {
-            console.warn('LocalStorage not available');
-        }
-    }
-    
-    loadSavedLanguage() {
-        try {
-            const savedLang = localStorage.getItem('preline-language');
-            if (savedLang && this.translations[savedLang]) {
-                this.switchLanguage(savedLang);
-            }
-        } catch (e) {
-            console.warn('LocalStorage not available');
-        }
     }
     
     getTurkishTranslations() {
@@ -130,17 +36,17 @@ class LanguageSwitcher {
                 title: "Preline'e Hoş Geldiniz",
                 subtitle: "Kalite ve inovasyonun buluştuğu nokta",
                 products: "Ürünleri Keşfet",
-                video: "Tanıtım Videosu"
+                about: "Hakkımızda"
             },
             about: {
                 title: "Hakkımızda",
-                lead: "Preline olarak, sektördeki 20 yılı aşkın deneyimimizle kaliteli ürün ve hizmetler sunmaktayız.",
+                lead: "Preline olarak, çeyrek asra yaklaşan sektörel tecrübemizle, mükemmeliyetçi hizmet anlayışımızı birleştiriyoruz.",
                 quality: "Kalite Standartları",
-                quality_desc: "En yüksek kalite standartlarında üretim",
+                quality_desc: "Uluslararası standartlarda, tavizsiz kalite kontrol süreçleri",
                 customer: "Müşteri Memnuniyeti",
-                customer_desc: "Müşteri odaklı yaklaşım",
+                customer_desc: "Müşteri beklentilerinin ötesinde değer yaratan çözüm odaklı yaklaşım",
                 innovation: "İnovasyon",
-                innovation_desc: "Sürekli gelişim ve yenilik"
+                innovation_desc: "Teknolojik dönüşümü merkeze alan Ar-Ge odaklı sürekli gelişim"
             },
             products: {
                 title: "Ürünlerimiz",
@@ -155,18 +61,17 @@ class LanguageSwitcher {
                 send: "Gönder"
             },
             application: {
-                title: "İş Ortağı Başvuru Formu",
+                title: "Başvuru Formu",
                 lead: "Bizimle çalışmak için başvurunuzu gönderin.",
-                apply: "Başvuruyu Gönder"
+                apply: "Başvuru Yap"
             },
             footer: {
                 navigation: "Navigasyon",
                 contact: "İletişim",
                 languages: "Diller",
                 tagline: "Kalite ve inovasyonun buluştuğu nokta",
-                copyright: "© 2024 Preline. Tüm hakları saklıdır."
+                copyright: "© 2025 Preline. Tüm hakları saklıdır."
             }
-            
         };
     }
     
@@ -183,17 +88,17 @@ class LanguageSwitcher {
                 title: "Welcome to Preline",
                 subtitle: "Where quality meets innovation",
                 products: "Explore Products",
-                video: "Watch Video"
+                about: "About Us"
             },
             about: {
                 title: "About Us",
-                lead: "With over 20 years of experience in the industry, we provide quality products and services.",
+                lead: "With nearly a quarter century of sectoral experience, we combine our perfectionist service approach.",
                 quality: "Quality Standards",
-                quality_desc: "Manufacturing with the highest quality standards",
+                quality_desc: "Uncompromising quality control processes at international standards",
                 customer: "Customer Satisfaction",
-                customer_desc: "Customer-focused approach",
+                customer_desc: "Solution-oriented approach that creates value beyond customer expectations",
                 innovation: "Innovation",
-                innovation_desc: "Continuous development and innovation"
+                innovation_desc: "Continuous development focused on R&D, centered on technological transformation"
             },
             products: {
                 title: "Our Products",
@@ -208,17 +113,16 @@ class LanguageSwitcher {
                 send: "Send"
             },
             application: {
-    title: "Partner Application Form",
-    lead: "Submit your application to work with us.",
-    apply: "Submit Application"
-}
-,
+                title: "Application Form",
+                lead: "Submit your application to work with us.",
+                apply: "Apply Now"
+            },
             footer: {
                 navigation: "Navigation",
                 contact: "Contact",
                 languages: "Languages",
                 tagline: "Where quality meets innovation",
-                copyright: "© 2024 Preline. All rights reserved."
+                copyright: "© 2025 Preline. All rights reserved."
             }
         };
     }
@@ -236,17 +140,17 @@ class LanguageSwitcher {
                 title: "مرحباً بكم في بريلاين",
                 subtitle: "حيث تلتقي الجودة بالابتكار",
                 products: "استكشف المنتجات",
-                video: "شاهد الفيديو"
+                about: "من نحن"
             },
             about: {
                 title: "من نحن",
-                lead: "بخبرة تزيد عن 20 عامًا في المجال، نقدم منتجات وخدمات عالية الجودة.",
+                lead: "مع خبرة قطاعية تقترب من ربع قرن، نجمع بين نهج خدمتنا المثالي.",
                 quality: "معايير الجودة",
-                quality_desc: "التصنيع بأعلى معايير الجودة",
+                quality_desc: "عمليات مراقبة الجودة التي لا هوادة فيها وفق المعايير الدولية",
                 customer: "رضا العملاء",
-                customer_desc: "نهج يركز على العميل",
+                customer_desc: "نهج يركز على الحلول ويخلق قيمة تتجاوز توقعات العملاء",
                 innovation: "الابتكار",
-                innovation_desc: "التطوير المستمر والابتكار"
+                innovation_desc: "تطوير مستمر يركز على البحث والتطوير، مركزاً على التحول التكنولوجي"
             },
             products: {
                 title: "منتجاتنا",
@@ -261,15 +165,16 @@ class LanguageSwitcher {
                 send: "إرسال"
             },
             application: {
-    title: "نموذج طلب الشريك",
-    lead: "قدم طلبك للعمل معنا.",
-    apply: "إرسال الطلب"},
+                title: "نموذج الطلب",
+                lead: "قدم طلبك للعمل معنا.",
+                apply: "قدم الآن"
+            },
             footer: {
                 navigation: "التنقل",
                 contact: "اتصل بنا",
                 languages: "اللغات",
                 tagline: "حيث تلتقي الجودة بالابتكار",
-                copyright: "© 2024 بريلاين. جميع الحقوق محفوظة."
+                copyright: "© 2025 بريلاين. جميع الحقوق محفوظة."
             }
         };
     }
@@ -287,17 +192,17 @@ class LanguageSwitcher {
                 title: "Добро пожаловать в Preline",
                 subtitle: "Где качество встречается с инновациями",
                 products: "Исследовать продукты",
-                video: "Смотреть видео"
+                about: "О нас"
             },
             about: {
                 title: "О нас",
-                lead: "Имея более 20 лет опыта в отрасли, мы предоставляем качественные продукты и услуги.",
+                lead: "Имея почти четверть века отраслевого опыта, мы сочетаем наш перфекционистский подход к обслуживанию.",
                 quality: "Стандарты качества",
-                quality_desc: "Производство по высочайшим стандартам качества",
+                quality_desc: "Неукоснительные процессы контроля качества по международным стандартам",
                 customer: "Удовлетворенность клиентов",
-                customer_desc: "Клиентоориентированный подход",
+                customer_desc: "Решение-ориентированный подход, создающий ценность, превышающую ожидания клиентов",
                 innovation: "Инновации",
-                innovation_desc: "Постоянное развитие и инновации"
+                innovation_desc: "Непрерывное развитие, ориентированное на НИОКР, с акцентом на технологические преобразования"
             },
             products: {
                 title: "Наши продукты",
@@ -312,29 +217,173 @@ class LanguageSwitcher {
                 send: "Отправить"
             },
             application: {
-    title: "Форма заявки партнера", 
-    lead: "Отправьте заявку для работы с нами.",
-    apply: "Отправить заявку"
-},
+                title: "Форма заявки",
+                lead: "Отправьте заявку для работы с нами.",
+                apply: "Подать заявку"
+            },
             footer: {
                 navigation: "Навигация",
                 contact: "Контакты",
                 languages: "Языки",
                 tagline: "Где качество встречается с инновациями",
-                copyright: "© 2024 Preline. Все права защищены."
+                copyright: "© 2025 Preline. Все права защищены."
             }
         };
     }
+    
+    bindEvents() {
+        // Language dropdown items
+        const langOptions = document.querySelectorAll('.language-option');
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = e.target.getAttribute('data-lang');
+                this.switchLanguage(lang);
+            });
+        });
+    }
+    
+    switchLanguage(lang) {
+        if (!this.translations[lang]) {
+            console.error(`Language "${lang}" not found`);
+            return;
+        }
+        
+        this.currentLang = lang;
+        this.updateContent();
+        this.updateDropdown();
+        this.updatePageDirection();
+        this.saveLanguage();
+        this.showLanguageChangeToast(lang);
+    }
+    
+    updateContent() {
+        const translation = this.translations[this.currentLang];
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const keys = element.getAttribute('data-i18n').split('.');
+            let value = translation;
+            
+            // Navigate through nested keys
+            for (const key of keys) {
+                if (value && value[key]) {
+                    value = value[key];
+                } else {
+                    value = null;
+                    break;
+                }
+            }
+            
+            if (value) {
+                // If element has child with nav-text or btn-text class, update that
+                const textElement = element.querySelector('.nav-text, .btn-text');
+                if (textElement) {
+                    textElement.textContent = value;
+                } else {
+                    element.textContent = value;
+                }
+            }
+        });
+    }
+    
+    updateDropdown() {
+        const dropdownToggle = document.querySelector('#languageDropdown .lang-code');
+        if (dropdownToggle) {
+            const langCodes = {
+                'tr': 'TR',
+                'en': 'EN',
+                'ar': 'AR',
+                'ru': 'RU'
+            };
+            dropdownToggle.textContent = langCodes[this.currentLang] || this.currentLang.toUpperCase();
+        }
+    }
+    
+    updatePageDirection() {
+        const html = document.documentElement;
+        html.lang = this.currentLang;
+        
+        if (this.currentLang === 'ar') {
+            html.dir = 'rtl';
+            html.classList.add('rtl');
+        } else {
+            html.dir = 'ltr';
+            html.classList.remove('rtl');
+        }
+    }
+    
+    saveLanguage() {
+        try {
+            localStorage.setItem('preline-language', this.currentLang);
+        } catch (e) {
+            console.warn('Could not save language preference:', e);
+        }
+    }
+    
+    loadSavedLanguage() {
+        try {
+            const savedLang = localStorage.getItem('preline-language');
+            if (savedLang && this.translations[savedLang]) {
+                this.switchLanguage(savedLang);
+            }
+        } catch (e) {
+            console.warn('Could not load saved language:', e);
+        }
+    }
+    
+    showLanguageChangeToast(lang) {
+        const messages = {
+            'tr': 'Dil Türkçe olarak değiştirildi',
+            'en': 'Language changed to English',
+            'ar': 'تم تغيير اللغة إلى العربية',
+            'ru': 'Язык изменен на русский'
+        };
+        
+        // Create toast
+        const toast = document.createElement('div');
+        toast.className = 'language-toast';
+        
+        Object.assign(toast.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            background: 'var(--primary-color)',
+            color: 'white',
+            padding: '12px 20px',
+            borderRadius: '8px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+            zIndex: '9999',
+            transform: 'translateY(-100px)',
+            transition: 'transform 0.3s ease'
+        });
+        
+        toast.textContent = messages[lang] || 'Language changed';
+        document.body.appendChild(toast);
+        
+        // Show toast
+        setTimeout(() => {
+            toast.style.transform = 'translateY(0)';
+        }, 10);
+        
+        // Hide after 3 seconds
+        setTimeout(() => {
+            toast.style.transform = 'translateY(-100px)';
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.remove();
+                }
+            }, 300);
+        }, 3000);
+    }
 }
 
-// Initialize Language Switcher
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing language switcher...');
     window.languageSwitcher = new LanguageSwitcher();
 });
 
-// Hata yönetimi
+// Error handling
 window.addEventListener('error', function(e) {
     console.error('Language switcher error:', e.error);
-    
 });

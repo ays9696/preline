@@ -1,129 +1,396 @@
-// Main JavaScript File
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initNavbar();
-    initSmoothScroll();
-    initAnimations();
-    initContactForm();
-    initPartnerApplicationForm(); // Yeni eklenen fonksiyon
-});
+// main.js - OPTİMİZE EDİLMİŞ VERSİYON
 
-// Navbar Scroll Effect
-function initNavbar() {
-    const navbar = document.querySelector('.custom-navbar');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-}
+/**
+ * Preline Main JavaScript File
+ * Tüm temel fonksiyonları içerir
+ */
 
-// Smooth Scroll
-function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+class PrelineWebsite {
+    constructor() {
+        this.isMobile = window.innerWidth <= 768;
+        this.init();
+    }
     
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80;
+    init() {
+        console.log('Preline website initializing...');
+        
+        // Initialize all components
+        this.initNavbar();
+        this.initSmoothScroll();
+        this.initBackToTop();
+        this.initFormValidation();
+        this.initResponsive();
+        this.initPerformance();
+        
+        console.log('Preline website initialized successfully');
+    }
+    
+    initNavbar() {
+        const navbar = document.querySelector('.custom-navbar');
+        if (!navbar) return;
+        
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu close on click
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    }
+    
+    initSmoothScroll() {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const navbarHeight = document.querySelector('.custom-navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    initBackToTop() {
+        // Create back to top button
+        const backToTopBtn = document.createElement('button');
+        backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.setAttribute('aria-label', 'Sayfanın başına dön');
+        
+        // Style the button
+        Object.assign(backToTopBtn.style, {
+            position: 'fixed',
+            bottom: '30px',
+            right: '30px',
+            width: '50px',
+            height: '50px',
+            background: 'var(--primary-color)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            cursor: 'pointer',
+            opacity: '0',
+            visibility: 'hidden',
+            transition: 'all 0.3s ease',
+            zIndex: '999',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        });
+        
+        document.body.appendChild(backToTopBtn);
+        
+        // Show/hide button on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.visibility = 'visible';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'hidden';
             }
         });
-    });
-}
-
-// Animations on Scroll
-function initAnimations() {
-    const animatedElements = document.querySelectorAll('.feature-item, .product-card, .section-title');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
+        
+        // Scroll to top on click
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+        
+        // Hover effects
+        backToTopBtn.addEventListener('mouseenter', () => {
+            backToTopBtn.style.transform = 'translateY(-3px)';
+            backToTopBtn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+        });
+        
+        backToTopBtn.addEventListener('mouseleave', () => {
+            backToTopBtn.style.transform = 'translateY(0)';
+            backToTopBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+        });
+    }
     
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Contact Form Handling
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
+    initFormValidation() {
+        // Contact form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            this.setupFormValidation(contactForm, 'contact');
+        }
+        
+        // Application form
+        const appForm = document.getElementById('partnerApplicationForm');
+        if (appForm) {
+            this.setupFormValidation(appForm, 'application');
+        }
+    }
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    setupFormValidation(form, type) {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Form validation
-            const formData = new FormData(this);
-            const formValues = Object.fromEntries(formData);
-            
-            // Basic validation
             let isValid = true;
-            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            const requiredInputs = form.querySelectorAll('[required]');
+            const errors = [];
             
-            inputs.forEach(input => {
+            // Validate required fields
+            requiredInputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
                     input.classList.add('is-invalid');
+                    errors.push(`${input.previousElementSibling?.textContent || 'Bu alan'} gereklidir`);
                 } else {
                     input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
                 }
             });
             
+            // Special validation for email
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput && emailInput.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    isValid = false;
+                    emailInput.classList.add('is-invalid');
+                    errors.push('Geçerli bir email adresi girin');
+                }
+            }
+            
             if (isValid) {
-                // Simulate form submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
+                this.showToast('Başarılı! Formunuz gönderildi.', 'success');
+                form.reset();
                 
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
-                submitBtn.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    alert('Mesajınız başarıyla gönderildi!');
-                    contactForm.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
+                // Remove validation classes
+                form.querySelectorAll('.is-valid').forEach(el => {
+                    el.classList.remove('is-valid');
+                });
+            } else {
+                this.showToast('Lütfen tüm alanları doğru şekilde doldurun.', 'error');
             }
         });
         
         // Real-time validation
-        const inputs = contactForm.querySelectorAll('input, textarea');
+        const inputs = form.querySelectorAll('input, textarea');
         inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.value.trim()) {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
+            input.addEventListener('input', () => {
+                if (input.value.trim()) {
+                    input.classList.remove('is-invalid');
+                }
+            });
+        });
+    }
+    
+    showToast(message, type) {
+        // Remove existing toasts
+        const existingToasts = document.querySelectorAll('.preline-toast');
+        existingToasts.forEach(toast => toast.remove());
+        
+        // Create toast
+        const toast = document.createElement('div');
+        toast.className = `preline-toast ${type}`;
+        
+        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+        const color = type === 'success' ? '#38A169' : '#E53E3E';
+        
+        Object.assign(toast.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            background: 'white',
+            padding: '15px 20px',
+            borderRadius: '8px',
+            boxShadow: '0 5px 20px rgba(0,0,0,0.15)',
+            zIndex: '9999',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            borderLeft: `4px solid ${color}`,
+            transform: 'translateX(150%)',
+            transition: 'transform 0.3s ease'
+        });
+        
+        toast.innerHTML = `
+            <i class="fas ${icon}" style="color: ${color}; font-size: 20px;"></i>
+            <div>
+                <div style="font-weight: 600; margin-bottom: 2px;">
+                    ${type === 'success' ? 'Başarılı' : 'Hata'}
+                </div>
+                <div style="font-size: 14px;">${message}</div>
+            </div>
+            <button class="toast-close" style="
+                background: none;
+                border: none;
+                color: #718096;
+                margin-left: 15px;
+                cursor: pointer;
+                font-size: 18px;
+                padding: 0;
+            ">
+                &times;
+            </button>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Show toast
+        setTimeout(() => {
+            toast.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Close button
+        toast.querySelector('.toast-close').addEventListener('click', () => {
+            toast.style.transform = 'translateX(150%)';
+            setTimeout(() => toast.remove(), 300);
+        });
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.style.transform = 'translateX(150%)';
+                setTimeout(() => toast.remove(), 300);
+            }
+        }, 5000);
+    }
+    
+    initResponsive() {
+        // Check if mobile
+        this.isMobile = window.innerWidth <= 768;
+        
+        // Add mobile class to body
+        if (this.isMobile) {
+            document.body.classList.add('mobile');
+        } else {
+            document.body.classList.remove('mobile');
+        }
+        
+        // Handle resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                this.isMobile = window.innerWidth <= 768;
+                
+                if (this.isMobile) {
+                    document.body.classList.add('mobile');
                 } else {
-                    this.classList.remove('is-valid');
+                    document.body.classList.remove('mobile');
+                }
+                
+                // Dispatch custom event for other components
+                window.dispatchEvent(new CustomEvent('preline:resize'));
+            }, 250);
+        });
+    }
+    
+    initPerformance() {
+        // Lazy load all images
+        this.lazyLoadImages();
+        
+        // Optimize videos
+        this.optimizeVideos();
+        
+        // Add loading class to body
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            console.log('Page fully loaded');
+        });
+    }
+    
+    lazyLoadImages() {
+        const images = document.querySelectorAll('img[data-src]');
+        if (images.length === 0) return;
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px'
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback
+            images.forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+            });
+        }
+    }
+    
+    optimizeVideos() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            video.muted = true;
+            
+            // Add loaded class when video is ready
+            video.addEventListener('loadeddata', () => {
+                video.classList.add('loaded');
+            });
+            
+            // Error handling
+            video.addEventListener('error', () => {
+                console.warn('Video failed to load:', video.src);
+                video.style.display = 'none';
+                
+                // Show fallback image if available
+                const fallback = video.parentElement.querySelector('img');
+                if (fallback) {
+                    fallback.style.display = 'block';
                 }
             });
         });
     }
 }
 
-// Utility Functions
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    window.prelineWebsite = new PrelineWebsite();
+    
+    // Update social links with actual numbers
+    setTimeout(() => {
+        const whatsappLinks = document.querySelectorAll('a[href*="whatsapp"]');
+        whatsappLinks.forEach(link => {
+            // Replace with your actual WhatsApp number
+            link.href = link.href.replace('905XXXXXXXXX', 'YOUR_WHATSAPP_NUMBER');
+        });
+    }, 1000);
+});
+
+// Utility functions
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -136,339 +403,24 @@ function debounce(func, wait) {
     };
 }
 
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
-        initNavbar,
-        initSmoothScroll,
-        initAnimations,
-        initContactForm
+        PrelineWebsite,
+        debounce,
+        throttle
     };
 }
-// Partner Application Form Handling
-function initPartnerApplicationForm() {
-    const applicationForm = document.getElementById('partnerApplicationForm');
-    
-    if (applicationForm) {
-        applicationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Form validation
-            const formData = new FormData(this);
-            const formValues = Object.fromEntries(formData);
-            
-            // Basic validation
-            let isValid = true;
-            const requiredInputs = this.querySelectorAll('input[required], textarea[required]');
-            const kvkkCheckbox = this.querySelector('#kvkk');
-            
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('is-invalid');
-                } else {
-                    input.classList.remove('is-invalid');
-                }
-            });
-            
-            // KVKK validation
-            if (!kvkkCheckbox.checked) {
-                isValid = false;
-                kvkkCheckbox.classList.add('is-invalid');
-            } else {
-                kvkkCheckbox.classList.remove('is-invalid');
-            }
-            
-            if (isValid) {
-                // Simulate form submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
-                submitBtn.disabled = true;
-                
-                // Prepare data for email
-                const applicationData = {
-                    company: formValues.companyName,
-                    contact_person: formValues.contactPerson,
-                    email: formValues.email,
-                    phone: formValues.phone,
-                    city: formValues.city,
-                    tax_number: formValues.taxNumber,
-                    position: formValues.position,
-                    is_corporate: formValues.isCorporate ? 'Evet' : 'Hayır',
-                    additional_info: formValues.additionalInfo,
-                    submission_date: new Date().toLocaleString('tr-TR')
-                };
-                
-                // Simulate API call - Bu kısmı backend entegrasyonu ile değiştireceksiniz
-                setTimeout(() => {
-                    // Email template verilerini burada kullanabilirsiniz
-                    console.log('Application Data:', applicationData);
-                    
-                    alert('Başvurunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.');
-                    applicationForm.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    
-                    // Form gönderildikten sonra sayfayı yukarı kaydır
-                    window.scrollTo({
-                        top: applicationForm.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }, 2000);
-            }
-        });
-        
-        // Real-time validation
-        const inputs = applicationForm.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.type === 'checkbox') {
-                    if (this.checked) {
-                        this.classList.remove('is-invalid');
-                    }
-                } else if (this.value.trim()) {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
-                } else {
-                    this.classList.remove('is-valid');
-                }
-            });
-        });
-    }
-    // CSRF Token ekleyin
-function addCSRFToken() {
-    const token = this.generateCSRFToken();
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'csrf_token';
-        input.value = token;
-        form.appendChild(input);
-    });
-}
-
-// Captcha ekleyin (Google reCAPTCHA v3)
-function addCaptcha() {
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY';
-    document.head.appendChild(script);
-    
-    // Form submit'te
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            grecaptcha.ready(() => {
-                grecaptcha.execute('YOUR_SITE_KEY', {action: 'submit'})
-                    .then(token => {
-                        // Token'ı form'a ekle
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = 'g-recaptcha-response';
-                        input.value = token;
-                        form.appendChild(input);
-                        
-                        // Formu gönder
-                        form.submit();
-                    });
-            });
-        });
-    });
-}
-}
-// Main JavaScript File
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Preline Website Loaded');
-    
-    // Initialize components
-    initSmoothScroll();
-    initFormSubmissions();
-    initNavbar();
-    initScrollToTop();
-    
-    // Performance optimization
-    initLazyLoading();
-    initVideoOptimization();
-});
-
-// Smooth scroll for anchor links
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Update active nav link
-                updateActiveNavLink(targetId);
-            }
-        });
-    });
-}
-
-// Update active navigation link
-function updateActiveNavLink(targetId) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === targetId) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Form submissions
-function initFormSubmissions() {
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send data to server
-            alert('Mesajınız başarıyla gönderildi!');
-            this.reset();
-        });
-    }
-    
-    // Application form
-    const appForm = document.getElementById('partnerApplicationForm');
-    if (appForm) {
-        appForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Validate KVKK
-            const kvkkCheckbox = document.getElementById('kvkk');
-            if (!kvkkCheckbox.checked) {
-                alert('Lütfen KVKK onayını işaretleyiniz.');
-                kvkkCheckbox.focus();
-                return;
-            }
-            
-            // Here you would typically send data to server
-            alert('Başvurunuz başarıyla gönderildi! Teşekkür ederiz.');
-            this.reset();
-        });
-    }
-}
-
-// Navbar scroll effect
-function initNavbar() {
-    const navbar = document.querySelector('.custom-navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-}
-
-// Scroll to top functionality
-function initScrollToTop() {
-    const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    backToTopBtn.className = 'back-to-top';
-    backToTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    `;
-    
-    document.body.appendChild(backToTopBtn);
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            backToTopBtn.style.opacity = '1';
-            backToTopBtn.style.visibility = 'visible';
-        } else {
-            backToTopBtn.style.opacity = '0';
-            backToTopBtn.style.visibility = 'hidden';
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Lazy loading for images
-function initLazyLoading() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for older browsers
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-        });
-    }
-}
-
-// Video optimization
-function initVideoOptimization() {
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-        video.muted = true;
-        
-        // Handle video loading errors
-        video.addEventListener('error', function() {
-            console.error('Video failed to load:', this.src);
-            // You could show a fallback image here
-        });
-    });
-}
-
-// Responsive adjustments
-function handleResponsive() {
-    // Check if mobile
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMobile) {
-        // Mobile-specific adjustments
-        document.body.classList.add('mobile');
-    } else {
-        document.body.classList.remove('mobile');
-    }
-}
-
-// Initialize on load and resize
-window.addEventListener('load', handleResponsive);
-window.addEventListener('resize', handleResponsive);

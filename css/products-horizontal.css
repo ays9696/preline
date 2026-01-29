@@ -1,4 +1,4 @@
-/* PRODUCTS HORIZONTAL SCROLLER STYLES */
+/* PRODUCTS HORIZONTAL SCROLLER STYLES - RENKLİ VERSİYON */
 
 .products-horizontal-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -10,14 +10,14 @@
 }
 
 .products-horizontal-section .section-title {
-    color: var(--dark-color);
+    color: #2D3748;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 .products-horizontal-section .section-header p {
-    color: var(--dark-light);
+    color: #4A5568;
     font-size: 1.1rem;
 }
 
@@ -39,7 +39,7 @@
     scroll-behavior: smooth;
     padding: 15px 10px;
     scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) #f0f0f0;
+    scrollbar-color: #FF6B8B #f0f0f0;
     min-height: 400px;
 }
 
@@ -54,13 +54,13 @@
 }
 
 .horizontal-scroller::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: linear-gradient(135deg, #FF6B8B, #E05575);
     border-radius: 10px;
     border: 2px solid #f0f0f0;
 }
 
 .horizontal-scroller::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    background: linear-gradient(135deg, #E05575, #FF6B8B);
 }
 
 /* Scroll Items */
@@ -86,13 +86,15 @@
 }
 
 .scroll-item:hover .card {
-    box-shadow: 0 15px 35px rgba(44, 90, 160, 0.15);
+    box-shadow: 0 15px 35px rgba(255, 107, 139, 0.15);
+    border: 1px solid rgba(255, 107, 139, 0.1);
 }
 
 .scroll-item .card-img-top {
     height: 220px;
     object-fit: cover;
     transition: transform 0.6s ease;
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
 }
 
 .scroll-item:hover .card-img-top {
@@ -101,11 +103,13 @@
 
 .scroll-item .card-body {
     padding: 25px;
+    background: white;
 }
 
+/* Category Badge */
 .scroll-item .card-category {
     display: inline-block;
-    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    background: linear-gradient(135deg, #4ECDC4, #36B5AB);
     color: white;
     padding: 4px 12px;
     border-radius: 20px;
@@ -116,17 +120,19 @@
     letter-spacing: 0.5px;
 }
 
+/* Card Title */
 .scroll-item .card-title {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--dark-color);
+    color: #E05575;
     line-height: 1.3;
 }
 
+/* Card Text */
 .scroll-item .card-text {
     font-size: 0.95rem;
-    color: var(--dark-light);
+    color: #4A5568;
     margin-bottom: 20px;
     line-height: 1.6;
     min-height: 60px;
@@ -142,25 +148,26 @@
     align-items: center;
     margin-bottom: 8px;
     font-size: 0.9rem;
-    color: var(--dark-light);
+    color: #4A5568;
 }
 
 .product-features li i {
-    color: var(--success-color);
+    color: #38A169;
     margin-right: 10px;
     font-size: 0.8rem;
 }
 
-/* Buttons */
+/* Buttons Container */
 .product-actions {
     display: flex;
     gap: 10px;
     margin-top: 20px;
 }
 
+/* Details Button */
 .btn-details {
     flex: 1;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: linear-gradient(135deg, #FF6B8B, #E05575);
     border: none;
     color: white;
     padding: 10px 15px;
@@ -172,15 +179,18 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .btn-details:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    background: linear-gradient(135deg, #E05575, #FF6B8B);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
     color: white;
 }
 
+/* WhatsApp Button */
 .btn-whatsapp {
     width: 45px;
     height: 45px;
@@ -192,11 +202,14 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .btn-whatsapp:hover {
     transform: translateY(-2px) rotate(5deg);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    background: linear-gradient(135deg, #128C7E, #25D366);
 }
 
 /* Scroll Buttons */
@@ -205,8 +218,8 @@
     height: 50px;
     border-radius: 50%;
     background: white;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 2px solid #FF6B8B;
+    color: #FF6B8B;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,10 +229,10 @@
 }
 
 .btn-scroll:hover {
-    background: var(--primary-color);
+    background: #FF6B8B;
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(44, 90, 160, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 107, 139, 0.3);
 }
 
 .btn-scroll:disabled {
@@ -230,7 +243,8 @@
 
 .btn-scroll:disabled:hover {
     background: white;
-    color: var(--primary-color);
+    color: #FF6B8B;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Progress Bar */
@@ -245,7 +259,7 @@
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(90deg, #4ECDC4, #FF6B8B);
     width: 0%;
     transition: width 0.3s ease;
     border-radius: 3px;
@@ -253,7 +267,7 @@
 
 /* View All Button */
 .btn-view-all {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: linear-gradient(135deg, #FF6B8B, #E05575);
     color: white;
     padding: 12px 30px;
     border-radius: 50px;
@@ -265,13 +279,16 @@
     align-items: center;
     gap: 10px;
     margin-top: 40px;
-    box-shadow: 0 5px 20px rgba(44, 90, 160, 0.2);
+    box-shadow: 0 5px 20px rgba(255, 107, 139, 0.2);
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-view-all:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 107, 139, 0.3);
     color: white;
+    background: linear-gradient(135deg, #E05575, #FF6B8B);
 }
 
 /* Empty State */
@@ -282,7 +299,7 @@
     justify-content: center;
     min-height: 300px;
     text-align: center;
-    color: var(--dark-light);
+    color: #4A5568;
 }
 
 .horizontal-scroller-empty i {
@@ -341,6 +358,10 @@
     .scroll-item .card-body {
         padding: 20px;
     }
+    
+    .products-horizontal-section .section-title {
+        font-size: 2.2rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -373,56 +394,40 @@
         width: 100%;
         height: 45px;
     }
+    
+    .btn-details {
+        width: 100%;
+    }
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
+/* Print Styles */
+@media print {
     .products-horizontal-section {
-        background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+        page-break-inside: avoid;
     }
     
-    .products-horizontal-section .section-title {
-        color: white;
+    .horizontal-scroller {
+        overflow: visible !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
     }
     
-    .products-horizontal-section .section-header p {
-        color: #CBD5E0;
+    .scroll-item {
+        width: 48% !important;
+        margin-bottom: 20px;
+        page-break-inside: avoid;
     }
     
-    .horizontal-scroller-container {
-        background: #2D3748;
-        border-color: #4A5568;
+    .btn-scroll, 
+    .scroll-progress,
+    .btn-whatsapp,
+    .btn-details {
+        display: none !important;
     }
     
     .scroll-item .card {
-        background: #4A5568;
-    }
-    
-    .scroll-item .card-title {
-        color: white;
-    }
-    
-    .scroll-item .card-text {
-        color: #CBD5E0;
-    }
-    
-    .product-features li {
-        color: #A0AEC0;
-    }
-    
-    .btn-scroll {
-        background: #4A5568;
-        border-color: var(--primary-light);
-        color: var(--primary-light);
-    }
-    
-    .btn-scroll:hover {
-        background: var(--primary-color);
-        color: white;
-    }
-    
-    .scroll-progress {
-        background: #4A5568;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
     }
 }
 
@@ -442,3 +447,4 @@
         scroll-behavior: auto;
     }
 }
+

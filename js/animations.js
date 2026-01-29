@@ -122,41 +122,81 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Hero Media Slider
     class HeroMediaSlider {
         constructor() {
-            this.mediaItems = document.querySelectorAll('.hero-media');
-            this.controlButtons = document.querySelectorAll('.media-control-btn');
-            this.currentIndex = 0;
-            this.interval = null;
-            
-            if (this.mediaItems.length > 0) {
-                console.log('Found', this.mediaItems.length, 'media items');
-                this.init();
-            }
+        this.mediaItems = document.querySelectorAll('.hero-media');
+        this.controlButtons = document.querySelectorAll('.media-control-btn');
+        this.currentIndex = 0;
+        this.interval = null;
+        
+        console.log('Found media items:', this.mediaItems.length);
+        
+        if (this.mediaItems.length > 0) {
+            this.init();
         }
+    }
+    
         
         init() {
-            // İlk öğeyi aktif yap
-            this.activateItem(0);
-            
-            // Kontrolleri kur
-            this.setupControls();
-            
-            // Otomatik geçiş başlat
-            this.startAutoSlide();
-            
-            // Video event listener'ları
-            this.setupVideoEvents();
+        // Önce tüm medya öğelerini gizle
+        this.mediaItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // İlk öğeyi aktif yap
+        if (this.mediaItems.length > 0) {
+            this.mediaItems[0].classList.add('active');
+            this.playMedia(this.mediaItems[0]);
         }
         
-        setupControls() {
-            this.controlButtons.forEach((btn, index) => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.goToSlide(index);
-                    this.resetAutoSlide();
-                });
+        // Kontrolleri aktif yap
+        if (this.controlButtons.length > 0) {
+            this.controlButtons[0].classList.add('active');
+        }
+        
+        this.setupControls();
+        this.startAutoSlide();
+    }
+         playMedia(media) {
+        if (media.tagName === 'VIDEO') {
+            media.play().catch(e => {
+                console.log('Video autoplay prevented, waiting for user interaction');
             });
         }
+    }
+    
+    setupControls() {
+        this.controlButtons.forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.goToSlide(index);
+                this.resetAutoSlide();
+            });
+        });
+    }
+    
+    activateItem(index) {
+        // Önceki aktif öğeyi devre dışı bırak
+        this.mediaItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.tagName === 'VIDEO') {
+                item.pause();
+                item.currentTime = 0;
+            }
+        });
         
+        this.controlButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Yeni öğeyi aktif yap
+        this.currentIndex = index;
+        this.mediaItems[this.currentIndex].classList.add('active');
+        this.controlButtons[this.currentIndex].classList.add('active');
+        
+        // Medyayı oynat
+        this.playMedia(this.mediaItems[this.currentIndex]);
+    }
+    
         setupVideoEvents() {
             this.mediaItems.forEach(item => {
                 if (item.tagName === 'VIDEO') {
@@ -287,74 +327,259 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 4. Form Validation
-    class FormValidation {
-        constructor() {
-            this.contactForm = document.getElementById('contactForm');
-            this.applicationForm = document.getElementById('partnerApplicationForm');
-            this.init();
+    // animations.js dosyasındaki FormValidation sınıfını bulun ve şu şekilde değiştirin:
+
+class FormValidation {
+    constructor() {
+        this.contactForm = document.getElementById('contactForm');
+        this.applicationForm = document.getElementById('partnerApplicationForm');
+        this.init();
+    }
+    
+    init() {
+        if (this.contactForm) {
+            this.contactForm.addEventListener('submit', (e) => this.handleContactSubmit(e));
         }
         
-        init() {
-            if (this.contactForm) {
-                this.contactForm.addEventListener('submit', (e) => this.handleContactSubmit(e));
-            }
-            
-            if (this.applicationForm) {
-                this.applicationForm.addEventListener('submit', (e) => this.handleApplicationSubmit(e));
-            }
-            
-            // Form input validation
-            this.setupInputValidation();
+        if (this.applicationForm) {
+            this.applicationForm.addEventListener('submit', (e) => this.handleApplicationSubmit(e));
         }
         
-        setupInputValidation() {
-            const inputs = document.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.addEventListener('blur', () => this.validateField(input));
-                input.addEventListener('input', () => this.clearError(input));
-            });
+        // Form input validation
+        this.setupInputValidation();
+    }
+    
+    setupInputValidation() {
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('input', () => this.clearError(input));
+        });
+    }
+    
+    validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.getAttribute('placeholder') || field.getAttribute('name') || 'Bu alan';
+        
+        // Zorunlu alan kontrolü
+        if (field.hasAttribute('required') && !value) {
+            this.showError(field, `${fieldName} zorunludur`);
+            return false;
         }
         
-        validateField(field) {
-            const value = field.value.trim();
-            
-            if (field.hasAttribute('required') && !value) {
-                this.showError(field, 'Bu alan zorunludur');
+        // Email kontrolü
+        if (field.type === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                this.showError(field, 'Geçerli bir email adresi giriniz');
                 return false;
             }
-            
-            if (field.type === 'email' && value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(value)) {
-                    this.showError(field, 'Geçerli bir email adresi giriniz');
-                    return false;
-                }
-            }
-            
-            if (field.type === 'tel' && value) {
-                const phoneRegex = /^[0-9+\-\s()]+$/;
-                if (!phoneRegex.test(value)) {
-                    this.showError(field, 'Geçerli bir telefon numarası giriniz');
-                    return false;
-                }
-            }
-            
-            this.showSuccess(field);
-            return true;
         }
         
-        showError(field, message) {
-            field.classList.add('is-invalid');
-            field.classList.remove('is-valid');
-            
-            let errorDiv = field.parentElement.querySelector('.invalid-feedback');
-            if (!errorDiv) {
-                errorDiv = document.createElement('div');
-                errorDiv.className = 'invalid-feedback';
-                field.parentElement.appendChild(errorDiv);
+        // Telefon numarası kontrolü
+        if (field.type === 'tel' && value) {
+            const phoneRegex = /^[0-9+\-\s()]{10,20}$/;
+            if (!phoneRegex.test(value)) {
+                this.showError(field, 'Geçerli bir telefon numarası giriniz (örn: 5551234567)');
+                return false;
             }
-            errorDiv.textContent = message;
         }
+        
+        // Vergi numarası kontrolü (sadece rakam)
+        if (field.name === 'taxNumber' && value) {
+            const taxRegex = /^[0-9]{10,11}$/;
+            if (!taxRegex.test(value)) {
+                this.showError(field, 'Geçerli bir vergi numarası giriniz (10-11 haneli)');
+                return false;
+            }
+        }
+        
+        this.showSuccess(field);
+        return true;
+    }
+    
+    showError(field, message) {
+        field.classList.add('is-invalid');
+        field.classList.remove('is-valid');
+        
+        // Mevcut hata mesajını temizle
+        let errorDiv = field.parentElement.querySelector('.invalid-feedback');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'invalid-feedback';
+            field.parentElement.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+    
+    showSuccess(field) {
+        field.classList.remove('is-invalid');
+        field.classList.add('is-valid');
+        
+        const errorDiv = field.parentElement.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
+        }
+    }
+    
+    clearError(field) {
+        field.classList.remove('is-invalid');
+        field.classList.remove('is-valid');
+        
+        const errorDiv = field.parentElement.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
+        }
+    }
+    
+    handleContactSubmit(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+        
+        // Tüm zorunlu alanları kontrol et
+        inputs.forEach(input => {
+            if (!this.validateField(input)) {
+                isValid = false;
+            }
+        });
+        
+        if (isValid) {
+            this.showSuccessMessage('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+            form.reset();
+            
+            // Form alanlarını temizle
+            form.querySelectorAll('input, textarea').forEach(field => {
+                field.classList.remove('is-valid');
+            });
+        } else {
+            this.showErrorMessage('Lütfen tüm zorunlu alanları doğru şekilde doldurun.');
+        }
+    }
+    
+    handleApplicationSubmit(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const requiredInputs = form.querySelectorAll('[required]');
+        const kvkkCheckbox = document.getElementById('kvkk');
+        let isValid = true;
+        
+        // KVKK kontrolü
+        if (!kvkkCheckbox.checked) {
+            this.showError(kvkkCheckbox, 'KVKK onayı gereklidir. Lütfen kutucuğu işaretleyin.');
+            isValid = false;
+        } else {
+            this.clearError(kvkkCheckbox);
+        }
+        
+        // Diğer zorunlu alanlar
+        requiredInputs.forEach(input => {
+            if (input !== kvkkCheckbox && !this.validateField(input)) {
+                isValid = false;
+            }
+        });
+        
+        if (isValid) {
+            // Başarılı mesajı
+            this.showSuccessMessage('Başvurunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.');
+            
+            // Formu sıfırla
+            form.reset();
+            
+            // KVKK checkbox'ını sıfırla
+            if (kvkkCheckbox) {
+                kvkkCheckbox.checked = false;
+                this.clearError(kvkkCheckbox);
+            }
+            
+            // Form gönderildikten sonra sayfayı yukarı kaydır
+            window.scrollTo({
+                top: form.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        } else {
+            this.showErrorMessage('Lütfen tüm zorunlu alanları doğru şekilde doldurun ve KVKK onayını işaretleyin.');
+        }
+    }
+    
+    showSuccessMessage(message) {
+        // Geçici bir success mesajı göster
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-success alert-dismissible fade show';
+        alertDiv.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            border-left: 4px solid #28a745;
+        `;
+        alertDiv.innerHTML = `
+            <div class="d-flex align-items-center">
+                <i class="fas fa-check-circle me-3" style="font-size: 24px; color: #28a745;"></i>
+                <div>
+                    <strong>Başarılı!</strong>
+                    <div style="font-size: 14px;">${message}</div>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" style="position: absolute; top: 15px; right: 15px;"></button>
+        `;
+        
+        document.body.appendChild(alertDiv);
+        
+        // 5 saniye sonra kaldır
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.remove();
+            }
+        }, 5000);
+    }
+    
+    showErrorMessage(message) {
+        // Geçici bir error mesajı göster
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+        alertDiv.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            border-left: 4px solid #dc3545;
+        `;
+        alertDiv.innerHTML = `
+            <div class="d-flex align-items-center">
+                <i class="fas fa-exclamation-circle me-3" style="font-size: 24px; color: #dc3545;"></i>
+                <div>
+                    <strong>Dikkat!</strong>
+                    <div style="font-size: 14px;">${message}</div>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" style="position: absolute; top: 15px; right: 15px;"></button>
+        `;
+        
+        document.body.appendChild(alertDiv);
+        
+        // 5 saniye sonra kaldır
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.remove();
+            }
+        }, 5000);
+    }
+
         
         showSuccess(field) {
             field.classList.remove('is-invalid');
