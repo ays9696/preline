@@ -71,7 +71,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://online.fliphtml5.com/akzrp/qmgh/#p=1" target="_blank">
-                            <i class="fas fa-concierge-bell me-2"></i><span class="nav-text">E-Katalog</span>
+                            <i class="fas fa-concierge-bell me-2"></i><span class="nav-text" data-i18n="nav.catalog">E-Katalog</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -204,14 +204,14 @@
         <div class="container">
             <div class="section-header d-flex justify-content-between align-items-center mb-4">
                 <div>
-                    <h2 class="section-title mb-1" data-i18n="products.title">Ürünlerimiz</h2>
-                    <p class="text-muted mb-0">Yan yana kaydırarak tüm ürünlerimizi görün</p>
+                    <h2 class="section-title mb-1" data-i18n="products.title" >Ürünlerimiz</h2>
+                    <p class="text-muted mb-0" data-i18n="products.subtitle">Yan yana kaydırarak tüm ürünlerimizi görün</p>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn-scroll btn-scroll-prev" aria-label="Önceki ürünler">
+                    <button class="btn-scroll btn-scroll-prev" aria-label="Önceki ürünler" data-i18n="products.prev">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="btn-scroll btn-scroll-next" aria-label="Sonraki ürünler">
+                    <button class="btn-scroll btn-scroll-next" aria-label="Sonraki ürünler" data-i18n="products.next">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -228,7 +228,7 @@
             </div>
             
             <div class="text-center mt-5">
-                <a href="tum-urunler.html" class="btn btn-primary">
+                <a href="tum-urunler.html" class="btn btn-primary" data-i18n="products.all_products">
                     <i class="fas fa-th-large me-2"></i>Tüm Ürünleri Listele
                 </a>
             </div>
@@ -286,13 +286,13 @@
                                         <h5 class="mb-3 text-primary">Şirket Bilgileri</h5>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="companyName" class="form-label">Firma Ünvanı *</label>
+                                        <label for="companyName" class="form-label" data-i18n="application.company_name">Firma Ünvanı *</label>
                                         <input type="text" class="form-control" id="companyName" required>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="isCorporate">
-                                            <label class="form-check-label" for="isCorporate">
+                                            <label class="form-check-label" for="isCorporate" data-i18n="application.is_corporate">
                                                 Tüzel Kişi (Kurumsal Müşteri)
                                             </label>
                                         </div>
@@ -302,26 +302,26 @@
                                 <!-- Contact Information -->
                                 <div class="row mb-4">
                                     <div class="col-12">
-                                        <h5 class="mb-3 text-primary">İletişim Bilgileri</h5>
+                                        <h5 class="mb-3 text-primary" data-i18n="application.contact_info" >İletişim Bilgileri</h5>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="contactPerson" class="form-label">Adınız Soyadınız *</label>
+                                        <label for="contactPerson" class="form-label" data-i18n="application.contact_person">Adınız Soyadınız *</label>
                                         <input type="text" class="form-control" id="contactPerson" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="position" class="form-label">Ünvanınız *</label>
+                                        <label for="position" class="form-label" data-i18n="application.position">Ünvanınız *</label>
                                         <input type="text" class="form-control" id="position" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">E-posta *</label>
+                                        <label for="email" class="form-label" data-i18n="contact.email">E-posta *</label>
                                         <input type="email" class="form-control" id="email" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="phone" class="form-label">Telefon *</label>
+                                        <label for="phone" class="form-label" data-i18n="application.phone">Telefon *</label>
                                         <input type="tel" class="form-control" id="phone" required>
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <label for="city" class="form-label">Şehir *</label>
+                                        <label for="city" class="form-label" data-i18n="application.city">Şehir *</label>
                                         <input type="text" class="form-control" id="city" required>
                                     </div>
                                 </div>
@@ -329,9 +329,9 @@
                                 <!-- Additional Information -->
                                 <div class="row mb-4">
                                     <div class="col-12">
-                                        <h5 class="mb-3 text-primary">Ek Bilgiler</h5>
-                                        <label for="additionalInfo" class="form-label">İş birliği için faydalı olabilecek diğer bilgiler</label>
-                                        <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Proje teklifleri, özel ihtiyaçlar veya sorularınız..."></textarea>
+                                        <h5 class="mb-3 text-primary"  data-i18n="application.additional_info">Ek Bilgiler</h5>
+                                        <label for="additionalInfo" class="form-label"  data-i18n="application.additional_info_label">İş birliği için faydalı olabilecek diğer bilgiler</label>
+                                        <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Proje teklifleri, özel ihtiyaçlar veya sorularınız..." data-i18n="application.additional_info_placeholder"></textarea>
                                     </div>
                                 </div>
 
@@ -340,7 +340,7 @@
                                     <div class="col-12">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="kvkk" required>
-                                            <label class="form-check-label" for="kvkk">
+                                            <label class="form-check-label" for="kvkk" data-i18n="application.kvkk">
                                                 Kişisel verilerimin işlenmesini kabul ediyorum. (KVKK) *
                                             </label>
                                         </div>
@@ -414,18 +414,18 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
-                    <h5 class="mb-3">Yasal</h5>
+                    <h5 class="mb-3" data-i18n="footer.legal">Yasal</h5>
                     <ul class="list-unstyled">
-                        <li><a href="cookie-policy.html"><i class="fas fa-cookie me-2"></i>Çerez Politikası</a></li>
-                        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt me-2"></i>Gizlilik Politikası</a></li>
-                        <li><a href="kvkk.html"><i class="fas fa-file-contract me-2"></i>KVKK Aydınlatma Metni</a></li>
-                        <li><a href="terms.html"><i class="fas fa-gavel me-2"></i>Kullanım Şartları</a></li>
+                        <li><a href="cookie-policy.html" data-i18n="footer.cookie_policy" ><i class="fas fa-cookie me-2" ></i>Çerez Politikası</a></li>
+                        <li><a href="privacy-policy.html" data-i18n="footer.privacy_policy"><i class="fas fa-shield-alt me-2" ></i>Gizlilik Politikası</a></li>
+                        <li><a href="kvkk.html" data-i18n="footer.kvkk"><i class="fas fa-file-contract me-2" ></i>KVKK Aydınlatma Metni</a></li>
+                        <li><a href="terms.html" data-i18n="footer.terms"><i class="fas fa-gavel me-2" ></i>Kullanım Şartları</a></li>
                     </ul>
                 </div>
             </div>
             <hr class="my-4">
             <div class="text-center">
-                <p data-i18n="footer.copyright" class="mb-0">&copy; 2025 Preline. Tüm hakları saklıdır.</p>
+                <p data-i18n="footer.copyright" class="mb-0">&copy; 2026 Preline. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
@@ -452,6 +452,209 @@
                 btn.href = btn.href.replace('905XXXXXXXXX', 'YOUR_PHONE_NUMBER');
             });
         });
+        
+// İletişim Formu için JavaScript:
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        form_type: 'contact',
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        subject: document.getElementById('contactSubject').value,
+        message: document.getElementById('contactMessage').value
+    };
+    
+    await submitForm(formData, '#contactForm');
+});
+
+// Başvuru Formu için JavaScript:
+document.getElementById('partnerApplicationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        form_type: 'application',
+        companyName: document.getElementById('companyName').value,
+        isCorporate: document.getElementById('isCorporate').checked,
+        contactPerson: document.getElementById('contactPerson').value,
+        position: document.getElementById('position').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        city: document.getElementById('city').value,
+        additionalInfo: document.getElementById('additionalInfo').value,
+        kvkk: document.getElementById('kvkk').checked
+    };
+    
+    await submitForm(formData, '#partnerApplicationForm');
+});
+
+// Ortak Submit Fonksiyonu
+async function submitForm(formData, formSelector) {
+    const submitBtn = document.querySelector(`${formSelector} button[type="submit"]`);
+    const originalText = submitBtn.innerHTML;
+    
+    try {
+        // Butonu devre dışı bırak ve yükleniyor göster
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
+        
+        // PHP dosyanıza istek gönder
+        const response = await fetch('send_email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Başarılı mesajı göster
+            showAlert('success', 'Başarılı!', 'Formunuz başarıyla gönderildi.');
+            
+            // Formu temizle
+            document.querySelector(formSelector).reset();
+        } else {
+            // Hata mesajı göster
+            showAlert('danger', 'Hata!', result.message || 'Bir hata oluştu.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showAlert('danger', 'Hata!', 'İstek sırasında bir hata oluştu.');
+    } finally {
+        // Butonu eski haline getir
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+    }
+}
+
+// Alert gösterici fonksiyon
+function showAlert(type, title, message) {
+    // Önce varsa eski alert'i kaldır
+    const existingAlert = document.querySelector('.form-alert');
+    if (existingAlert) {
+        existingAlert.remove();
+    }
+    
+    // Bootstrap alert oluştur
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show form-alert position-fixed`;
+    alertDiv.style.cssText = `
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        max-width: 500px;
+    `;
+    
+    alertDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+                <strong>${title}</strong> ${message}
+            </div>
+            <button type="button" class="btn-close ms-2" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    
+    document.body.appendChild(alertDiv);
+    
+    // 5 saniye sonra otomatik kaldır
+    setTimeout(() => {
+        if (alertDiv.parentNode) {
+            alertDiv.remove();
+        }
+    }, 5000);
+}
+
+// Form validasyonu
+function validateForm(formData, formType) {
+    if (formType === 'contact') {
+        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+            showAlert('warning', 'Uyarı!', 'Lütfen tüm alanları doldurun.');
+            return false;
+        }
+        
+        // Email validasyonu
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            showAlert('warning', 'Uyarı!', 'Lütfen geçerli bir e-posta adresi girin.');
+            return false;
+        }
+    } else if (formType === 'application') {
+        // Zorunlu alan kontrolü
+        const requiredFields = ['companyName', 'contactPerson', 'position', 'email', 'phone', 'city'];
+        for (const field of requiredFields) {
+            if (!formData[field] || formData[field].trim() === '') {
+                showAlert('warning', 'Uyarı!', 'Lütfen tüm zorunlu alanları doldurun.');
+                return false;
+            }
+        }
+        
+        // Email validasyonu
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            showAlert('warning', 'Uyarı!', 'Lütfen geçerli bir e-posta adresi girin.');
+            return false;
+        }
+        
+        // KVKK kontrolü
+        if (!formData.kvkk) {
+            showAlert('warning', 'Uyarı!', 'KVKK onayını işaretlemeniz gerekmektedir.');
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+// Submit fonksiyonunu güncelleyelim
+async function submitForm(formData, formSelector) {
+    const submitBtn = document.querySelector(`${formSelector} button[type="submit"]`);
+    const originalText = submitBtn.innerHTML;
+    const formType = formData.form_type;
+    
+    // Validasyon kontrolü
+    if (!validateForm(formData, formType)) {
+        return;
+    }
+    
+    try {
+        // Butonu devre dışı bırak ve yükleniyor göster
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
+        
+        // PHP dosyanıza istek gönder
+        const response = await fetch('send_email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Başarılı mesajı göster
+            showAlert('success', 'Başarılı!', result.message || 'Formunuz başarıyla gönderildi.');
+            
+            // Formu temizle
+            document.querySelector(formSelector).reset();
+        } else {
+            // Hata mesajı göster
+            showAlert('danger', 'Hata!', result.message || 'Bir hata oluştu.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showAlert('danger', 'Hata!', 'Sunucu ile bağlantı kurulamadı.');
+    } finally {
+        // Butonu eski haline getir
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+    }
+}
+
     </script>
 </body>
 </html>

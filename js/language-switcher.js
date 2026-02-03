@@ -1,4 +1,4 @@
-// language-switcher.js - OPTİMİZE EDİLMİŞ
+// language-switcher.js - GÜNCELLENMİŞ
 
 class LanguageSwitcher {
     constructor() {
@@ -29,27 +29,32 @@ class LanguageSwitcher {
                 home: "Ana Sayfa",
                 about: "Hakkımızda",
                 products: "Ürünler",
+                catalog: "E-Katalog",
                 contact: "İletişim",
                 application: "Başvuru"
             },
             hero: {
-                title: "Preline'e Hoş Geldiniz",
-                subtitle: "Kalite ve inovasyonun buluştuğu nokta",
+                title: "Preline: Teknolojinin Japon Disipliniyle Yeniden Tanımı",
+                subtitle: "Sadece bir üretici değil, yüksek teknoloji ve inovasyonun stratejik çözüm ortağıyız. Geleneksel iş disiplinimizi, dünyanın en ileri teknolojileriyle geleceğe taşıyoruz.",
                 products: "Ürünleri Keşfet",
-                about: "Hakkımızda"
+                about: "Kurumsal Profilimiz"
             },
             about: {
                 title: "Hakkımızda",
-                lead: "Preline olarak, çeyrek asra yaklaşan sektörel tecrübemizle, mükemmeliyetçi hizmet anlayışımızı birleştiriyoruz.",
+                lead: "Sektördeki 20 yılı aşkın köklü geçmişimiz ve derin uzmanlığımızla Preline, sürdürülebilir kalite ve müşteri memnuniyetini odağına alan bir hizmet anlayışına sahiptir. Profesyonel birikimimizi, yenilikçi yaklaşımlarla harmanlayarak yüksek standartlarda çözümler üretiyoruz.",
                 quality: "Kalite Standartları",
-                quality_desc: "Uluslararası standartlarda, tavizsiz kalite kontrol süreçleri",
+                quality_desc: "Üretimin her aşamasında yüksek standartlar; her detayda üstün nitelik.",
                 customer: "Müşteri Memnuniyeti",
-                customer_desc: "Müşteri beklentilerinin ötesinde değer yaratan çözüm odaklı yaklaşım",
+                customer_desc: "Müşteri deneyimini odağına alan, güven ve şeffaflık üzerine kurulu hizmet kültürü.",
                 innovation: "İnovasyon",
-                innovation_desc: "Teknolojik dönüşümü merkeze alan Ar-Ge odaklı sürekli gelişim"
+                innovation_desc: "Geleceği bugünden tasarlayan yenilikçi fikirler ve dinamik gelişim süreçleri."
             },
             products: {
                 title: "Ürünlerimiz",
+                subtitle: "Yan yana kaydırarak tüm ürünlerimizi görün",
+                prev: "Önceki ürünler",
+                next: "Sonraki ürünler",
+                all_products: "Tüm Ürünleri Listele",
                 details: "Detaylı Bilgi"
             },
             contact: {
@@ -63,12 +68,28 @@ class LanguageSwitcher {
             application: {
                 title: "Başvuru Formu",
                 lead: "Bizimle çalışmak için başvurunuzu gönderin.",
+                company_info: "Şirket Bilgileri",
+                company_name: "Firma Ünvanı *",
+                is_corporate: "Tüzel Kişi (Kurumsal Müşteri)",
+                contact_info: "İletişim Bilgileri",
+                contact_person: "Adınız Soyadınız *",
+                position: "Ünvanınız *",
+                phone: "Telefon *",
+                city: "Şehir *",
+                additional_info: "Ek Bilgiler",
+                additional_info_label: "İş birliği için faydalı olabilecek diğer bilgiler",
+                additional_info_placeholder: "Proje teklifleri, özel ihtiyaçlar veya sorularınız...",
+                kvkk: "Kişisel verilerimin işlenmesini kabul ediyorum. (KVKK) *",
                 apply: "Başvuru Yap"
             },
             footer: {
                 navigation: "Navigasyon",
                 contact: "İletişim",
-                languages: "Diller",
+                legal: "Yasal",
+                cookie_policy: "Çerez Politikası",
+                privacy_policy: "Gizlilik Politikası",
+                kvkk: "KVKK Aydınlatma Metni",
+                terms: "Kullanım Şartları",
                 tagline: "Kalite ve inovasyonun buluştuğu nokta",
                 copyright: "© 2025 Preline. Tüm hakları saklıdır."
             }
@@ -81,28 +102,33 @@ class LanguageSwitcher {
                 home: "Home",
                 about: "About Us",
                 products: "Products",
+                catalog: "E-Catalog",
                 contact: "Contact",
                 application: "Application"
             },
             hero: {
-                title: "Welcome to Preline",
-                subtitle: "Where quality meets innovation",
+                title: "Preline: Redefining Technology with Japanese Discipline",
+                subtitle: "We are not just a manufacturer, but a strategic solution partner for high technology and innovation. We carry our traditional business discipline into the future with the world's most advanced technologies.",
                 products: "Explore Products",
-                about: "About Us"
+                about: "Our Corporate Profile"
             },
             about: {
                 title: "About Us",
-                lead: "With nearly a quarter century of sectoral experience, we combine our perfectionist service approach.",
+                lead: "With over 20 years of deep-rooted history and expertise in the sector, Preline has a service approach focused on sustainable quality and customer satisfaction. We combine our professional experience with innovative approaches to produce high-standard solutions.",
                 quality: "Quality Standards",
-                quality_desc: "Uncompromising quality control processes at international standards",
+                quality_desc: "High standards at every stage of production; superior quality in every detail.",
                 customer: "Customer Satisfaction",
-                customer_desc: "Solution-oriented approach that creates value beyond customer expectations",
+                customer_desc: "Service culture centered on customer experience, built on trust and transparency.",
                 innovation: "Innovation",
-                innovation_desc: "Continuous development focused on R&D, centered on technological transformation"
+                innovation_desc: "Innovative ideas and dynamic development processes that design the future today."
             },
             products: {
                 title: "Our Products",
-                details: "Learn More"
+                subtitle: "Swipe horizontally to see all our products",
+                prev: "Previous products",
+                next: "Next products",
+                all_products: "List All Products",
+                details: "More Information"
             },
             contact: {
                 title: "Contact",
@@ -115,12 +141,28 @@ class LanguageSwitcher {
             application: {
                 title: "Application Form",
                 lead: "Submit your application to work with us.",
-                apply: "Apply Now"
+                company_info: "Company Information",
+                company_name: "Company Title *",
+                is_corporate: "Legal Entity (Corporate Customer)",
+                contact_info: "Contact Information",
+                contact_person: "Your Name Surname *",
+                position: "Your Title *",
+                phone: "Phone *",
+                city: "City *",
+                additional_info: "Additional Information",
+                additional_info_label: "Other information that may be useful for cooperation",
+                additional_info_placeholder: "Project proposals, special needs or questions...",
+                kvkk: "I accept the processing of my personal data. (KVKK) *",
+                apply: "Apply"
             },
             footer: {
                 navigation: "Navigation",
                 contact: "Contact",
-                languages: "Languages",
+                legal: "Legal",
+                cookie_policy: "Cookie Policy",
+                privacy_policy: "Privacy Policy",
+                kvkk: "KVKK Disclosure Text",
+                terms: "Terms of Use",
                 tagline: "Where quality meets innovation",
                 copyright: "© 2025 Preline. All rights reserved."
             }
@@ -133,28 +175,33 @@ class LanguageSwitcher {
                 home: "الصفحة الرئيسية",
                 about: "من نحن",
                 products: "المنتجات",
+                catalog: "الكتروني كتالوج",
                 contact: "اتصل بنا",
-                application: "التقديم"
+                application: "تقديم"
             },
             hero: {
-                title: "مرحباً بكم في بريلاين",
-                subtitle: "حيث تلتقي الجودة بالابتكار",
-                products: "استكشف المنتجات",
-                about: "من نحن"
+                title: "بريلين: إعادة تعريف التكنولوجيا بالانضباط الياباني",
+                subtitle: "نحن لسنا مجرد مُصنِّع، بل شريك حل استراتيجي للتكنولوجيا العالية والابتكار. نحمل انضباط عملنا التقليدي إلى المستقبل بأكثر التقنيات تقدماً في العالم.",
+                products: "استكشاف المنتجات",
+                about: "ملفنا المؤسسي"
             },
             about: {
                 title: "من نحن",
-                lead: "مع خبرة قطاعية تقترب من ربع قرن، نجمع بين نهج خدمتنا المثالي.",
+                lead: "بخبرة تزيد عن 20 عامًا في القطاع، يتبنى بريلين نهج خدمة يركز على الجودة المستدامة ورضا العملاء. نجمع بين خبرتنا المهنية والأساليب المبتكرة لإنتاج حلول ذات معايير عالية.",
                 quality: "معايير الجودة",
-                quality_desc: "عمليات مراقبة الجودة التي لا هوادة فيها وفق المعايير الدولية",
+                quality_desc: "معايير عالية في كل مرحلة من مراحل الإنتاج؛ جودة فائقة في كل تفصيل.",
                 customer: "رضا العملاء",
-                customer_desc: "نهج يركز على الحلول ويخلق قيمة تتجاوز توقعات العملاء",
+                customer_desc: "ثقافة خدمة تتمحور حول تجربة العميل، مبنية على الثقة والشفافية.",
                 innovation: "الابتكار",
-                innovation_desc: "تطوير مستمر يركز على البحث والتطوير، مركزاً على التحول التكنولوجي"
+                innovation_desc: "أفكار مبتكرة وعمليات تطوير ديناميكية تصمم المستقبل اليوم."
             },
             products: {
                 title: "منتجاتنا",
-                details: "المزيد من المعلومات"
+                subtitle: "اسحب أفقيًا لرؤية جميع منتجاتنا",
+                prev: "المنتجات السابقة",
+                next: "المنتجات التالية",
+                all_products: "عرض جميع المنتجات",
+                details: "مزيد من المعلومات"
             },
             contact: {
                 title: "اتصل بنا",
@@ -167,14 +214,30 @@ class LanguageSwitcher {
             application: {
                 title: "نموذج الطلب",
                 lead: "قدم طلبك للعمل معنا.",
-                apply: "قدم الآن"
+                company_info: "معلومات الشركة",
+                company_name: "عنوان الشركة *",
+                is_corporate: "كيان قانوني (عميل مؤسسي)",
+                contact_info: "معلومات الاتصال",
+                contact_person: "اسمك ولقبك *",
+                position: "لقبك *",
+                phone: "هاتف *",
+                city: "المدينة *",
+                additional_info: "معلومات إضافية",
+                additional_info_label: "معلومات أخرى قد تكون مفيدة للتعاون",
+                additional_info_placeholder: "مقترحات المشاريع، احتياجات خاصة أو أسئلة...",
+                kvkk: "أوافق على معالجة بياناتي الشخصية. (KVKK) *",
+                apply: "تقديم"
             },
             footer: {
                 navigation: "التنقل",
                 contact: "اتصل بنا",
-                languages: "اللغات",
+                legal: "قانوني",
+                cookie_policy: "سياسة الكوكيز",
+                privacy_policy: "سياسة الخصوصية",
+                kvkk: "نص إفصاح KVKK",
+                terms: "شروط الاستخدام",
                 tagline: "حيث تلتقي الجودة بالابتكار",
-                copyright: "© 2025 بريلاين. جميع الحقوق محفوظة."
+                copyright: "© 2025 بريلين. جميع الحقوق محفوظة."
             }
         };
     }
@@ -185,33 +248,38 @@ class LanguageSwitcher {
                 home: "Главная",
                 about: "О нас",
                 products: "Продукты",
+                catalog: "Электронный каталог",
                 contact: "Контакты",
                 application: "Заявка"
             },
             hero: {
-                title: "Добро пожаловать в Preline",
-                subtitle: "Где качество встречается с инновациями",
+                title: "Preline: Переопределение технологий с японской дисциплиной",
+                subtitle: "Мы не просто производитель, а стратегический партнер по решениям в области высоких технологий и инноваций. Мы несем нашу традиционную деловую дисциплину в будущее с самыми передовыми технологиями мира.",
                 products: "Исследовать продукты",
-                about: "О нас"
+                about: "Наш корпоративный профиль"
             },
             about: {
                 title: "О нас",
-                lead: "Имея почти четверть века отраслевого опыта, мы сочетаем наш перфекционистский подход к обслуживанию.",
+                lead: "Более чем 20-летней историей и глубокой экспертизой в отрасли, Preline придерживается подхода к обслуживанию, ориентированного на устойчивое качество и удовлетворенность клиентов. Мы сочетаем наш профессиональный опыт с инновационными подходами для создания высококачественных решений.",
                 quality: "Стандарты качества",
-                quality_desc: "Неукоснительные процессы контроля качества по международным стандартам",
+                quality_desc: "Высокие стандарты на каждом этапе производства; превосходное качество в каждой детали.",
                 customer: "Удовлетворенность клиентов",
-                customer_desc: "Решение-ориентированный подход, создающий ценность, превышающую ожидания клиентов",
+                customer_desc: "Культура обслуживания, ориентированная на клиентский опыт, построенная на доверии и прозрачности.",
                 innovation: "Инновации",
-                innovation_desc: "Непрерывное развитие, ориентированное на НИОКР, с акцентом на технологические преобразования"
+                innovation_desc: "Инновационные идеи и динамичные процессы развития, проектирующие будущее уже сегодня."
             },
             products: {
                 title: "Наши продукты",
+                subtitle: "Проведите горизонтально, чтобы увидеть все наши продукты",
+                prev: "Предыдущие продукты",
+                next: "Следующие продукты",
+                all_products: "Показать все продукты",
                 details: "Подробнее"
             },
             contact: {
                 title: "Контакты",
                 name: "Ваше имя",
-                email: "Эл. почта",
+                email: "Электронная почта",
                 subject: "Тема",
                 message: "Ваше сообщение",
                 send: "Отправить"
@@ -219,18 +287,35 @@ class LanguageSwitcher {
             application: {
                 title: "Форма заявки",
                 lead: "Отправьте заявку для работы с нами.",
+                company_info: "Информация о компании",
+                company_name: "Название компании *",
+                is_corporate: "Юридическое лицо (Корпоративный клиент)",
+                contact_info: "Контактная информация",
+                contact_person: "Ваше имя и фамилия *",
+                position: "Ваша должность *",
+                phone: "Телефон *",
+                city: "Город *",
+                additional_info: "Дополнительная информация",
+                additional_info_label: "Другая информация, которая может быть полезна для сотрудничества",
+                additional_info_placeholder: "Предложения по проектам, особые потребности или вопросы...",
+                kvkk: "Я согласен на обработку моих персональных данных. (KVKK) *",
                 apply: "Подать заявку"
             },
             footer: {
                 navigation: "Навигация",
                 contact: "Контакты",
-                languages: "Языки",
+                legal: "Правовая информация",
+                cookie_policy: "Политика использования файлов cookie",
+                privacy_policy: "Политика конфиденциальности",
+                kvkk: "Текст разъяснения KVKK",
+                terms: "Условия использования",
                 tagline: "Где качество встречается с инновациями",
                 copyright: "© 2025 Preline. Все права защищены."
             }
         };
     }
     
+    // ... Diğer metotlar aynı kalacak ...
     bindEvents() {
         // Language dropdown items
         const langOptions = document.querySelectorAll('.language-option');
@@ -276,12 +361,34 @@ class LanguageSwitcher {
             }
             
             if (value) {
-                // If element has child with nav-text or btn-text class, update that
-                const textElement = element.querySelector('.nav-text, .btn-text');
-                if (textElement) {
-                    textElement.textContent = value;
+                // Handle different types of elements
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    if (element.hasAttribute('placeholder')) {
+                        element.placeholder = value;
+                    }
                 } else {
-                    element.textContent = value;
+                    // If element has child with specific text classes, update that
+                    const textElements = element.querySelectorAll('.nav-text, .btn-text, span:not([class]), p, h1, h2, h3, h4, h5, h6, a:not([class*="btn"])');
+                    
+                    if (textElements.length > 0) {
+                        // Check if we should update direct children or the element itself
+                        let updated = false;
+                        textElements.forEach(textElement => {
+                            if (textElement.parentElement === element && 
+                                !textElement.classList.contains('fa') && 
+                                !textElement.classList.contains('fas') && 
+                                !textElement.classList.contains('fab')) {
+                                textElement.textContent = value;
+                                updated = true;
+                            }
+                        });
+                        
+                        if (!updated) {
+                            element.textContent = value;
+                        }
+                    } else {
+                        element.textContent = value;
+                    }
                 }
             }
         });
@@ -387,3 +494,4 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('error', function(e) {
     console.error('Language switcher error:', e.error);
 });
+
